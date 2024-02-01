@@ -17,7 +17,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
     const db = client.db('PersonalProjectDB')
-    const quotesCollection = db.collection('quotes')
+    const eventsCollection = db.collection('events')
 
     // ========================
     // Middlewares
@@ -31,15 +31,15 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // Routes
     // ========================
     app.get('/', (req, res) => {
-      db.collection('quotes').find().toArray()
-        .then(quotes => {
-          res.render('index.ejs', { quotes: quotes })
+      db.collection('events').find().toArray()
+        .then(events => {
+          res.render('index.ejs', { events: events })
         })
         .catch(/* ... */)
     })
 
-    app.post('/quotes', (req, res) => {
-      quotesCollection.insertOne(req.body)
+    app.post('/events', (req, res) => {
+      eventsCollection.insertOne(req.body)
         .then(result => {
           res.redirect('/')
         })

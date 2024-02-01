@@ -3,22 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <title>Project App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles.css" />
+
   </head>
 
   <body>
-    <h1 data-position="header">if you're reading this it's already too late :(</h1>
+  <div class="container">
+    
+    <div class="row">
+      <h1 data-position="header">if you're reading this it's already too late :(</h1>
+    </div>
 
-    <% /* %> <section data-position="add-quote">
-      <h2>Add quote</h2>
-
-      <form action="/quotes" method="POST">
-        <input type="text" placeholder="name" name="name" />
-        <input type="text" placeholder="quote" name="quote" />
+  <div class="row">
+     <div class="col m-1" data-position="add-event">
+      <h2>Add Event Shawty</h2>
+      <form action="/events" method="POST">
+        <input type="text" placeholder="Title of Event" name="title" />
+        <input type="text" placeholder="Description" name="description" />
+        <input type="datetime-local" name="date">
+        
+        <input type="reset" value="Reset">
         <button type="submit">Submit</button>
       </form>
-    </section>
+    </div>
 
+    <div class="col m-1" data-position="events">
+      <h2>Events</h2>
+        <% for(var i = 0; i < events.length; i++) {%>
+          <div class=""> <hr class="text-dark">
+            <h4>Title: <%= events[i].title %></h4>
+            <p>Description: <%= events[i].description %></p>
+            <strong><p>Date: <%= events[i].date %></p></strong>
+          </div>
+        <% } %>
+      
+    </div>
+  </div>
+
+<% /* %>
     <section data-position="update-quote">
       <div>
         <h2>Darth Vadar invades!</h2>
@@ -53,7 +76,8 @@
         <% } %>
       </ul>
     </section> <% */ %>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="/main.js"></script>
+  </div>
   </body>
 </html>
