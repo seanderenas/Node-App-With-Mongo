@@ -1,0 +1,66 @@
+
+
+<% /* Form for getting the events and its data */ %>
+<div class="row">
+    <div class="col m-1" data-position="add-event">
+     <h2>Add Event Shawty</h2>
+     <form action="/events" method="POST">
+       <input type="text" placeholder="Title of Event" name="title" />
+       <input type="text" placeholder="Description" name="description" />
+       <input type="datetime-local" name="date">
+       
+       <input type="reset" value="Reset">
+       <button type="submit">Submit</button>
+     </form>
+   </div>
+
+ </div>
+
+<% /* old information from exmaple %>
+   <section data-position="update-quote">
+     <div>
+       <h2>Darth Vadar invades!</h2>
+       <p>
+         Replace first Yoda's quote with a quote written by Darth Vadar
+       </p>
+       <button id="update-button">Replace Yoda's quote</button>
+     </div>
+   </section>
+
+   <section data-position="delete-quote">
+     <div>
+       <h2>Remove Darth Vadar!</h2>
+       <p>
+         Delete one Darth Vadar's quote. Does nothing if there are no more
+         Darth Vadar's quote
+       </p>
+       <button id="delete-button">Delete Darth Vadar's quote</button>
+     </div>
+     <div id="message"></div>
+   </section>
+
+   <section data-position="quotes">
+     <h2>Quotes</h2>
+
+     <ul class="quotes">
+       <% for(var i = 0; i < quotes.length; i++) {%>
+       <li class="quote">
+         <span><%= quotes[i].name %></span>:
+         <span><%= quotes[i].quote %></span>
+       </li>
+       <% } %>
+     </ul>
+   </section> <% */ %>
+
+   <% /* Prints out all events to the screen  */ %>
+<div class="col m-1" data-position="events">
+    <h2>Events</h2>
+      <% for(var i = 0; i < events.length; i++) {%>
+        <div class=""> <hr class="text-dark">
+          <h4 class="link_hover">Title: <a class="text-decoration-none" href="/"><%= events[i].title %></a></h4>
+          <p>Description: <%= events[i].description %></p>
+          <strong><p>Date: <%= events[i].date %></p></strong>
+        </div>
+      <% } %>
+    
+  </div>

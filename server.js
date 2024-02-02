@@ -1,7 +1,9 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
+const expressLayouts = require('express-ejs-layouts')
 const app = express()
+ObjectID = require('mongodb').ObjectID
 
 // ========================
 // Link to Database
@@ -25,6 +27,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.set('view engine', 'ejs')
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(bodyParser.json())
+    app.use(expressLayouts)
+    app.set('layout', './layouts/application')
     app.use(express.static('public'))
 
     // ========================
@@ -33,7 +37,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.get('/', (req, res) => {
       db.collection('events').find().toArray()
         .then(events => {
-          res.render('index.ejs', { events: events })
+          res.render('index.ejs', { events: events, title: "Main Page", descripton: "Main page of Sean Derenas's personal website." })
         })
         .catch(/* ... */)
     })
@@ -41,9 +45,28 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.post('/events', (req, res) => {
       eventsCollection.insertOne(req.body)
         .then(result => {
-          res.redirect('/')
+          res.redirect('/events')
         })
         .catch(error => console.error(error))
+    })
+
+    app.get('/events', (req, res) => {
+      db.collection('events').find().toArray()
+        .then(events => {
+          res.render('events.ejs', { events: events, title: "All Events", descripton: "Shows all events created by users." })
+        })
+        .catch(/* ... */)
+    })
+
+    app.get('/about', (req, res) => {
+      res.render('about', { title: 'About Page', descripton: "Explains who i am and my experience coding." })
+    })
+
+    app.get('/contact', (req, res) => {
+      res.render('contact', { title: 'Contact Page', descripton: "How to contact me" })
+    })
+    app.get('/portfolio', (req, res) => {
+      res.render('portfolio', { title: 'Porfolio Page', descripton: "Page containing all my projects i want to show off." })
     })
 
     /*app.put('/quotes', (req, res) => {
