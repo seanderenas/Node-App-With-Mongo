@@ -38,7 +38,7 @@ input, textarea {
   color: #32373B;
   opacity: 50%;
 }
-button {
+button, input[type="reset"] { /* input[type="reset"] is for reset buttons */
   background-color: #4A5859;
   color: #FAF9F6;
   transition: 0.2s;
@@ -46,12 +46,12 @@ button {
   border: 2px #4A5859 solid;
   padding: 5px;
 }
-button:hover {
+button:hover, input[type="reset"]:hover {
   background-color: #FAF9F6;
   color: #4A5859;
   transition: 0.2s;
 }
-button:active {
+button:active, input[type="reset"]:active {
   background-color: #32373B;
   color: #FAF9F6;
   border: 2px #32373B solid;
@@ -68,9 +68,10 @@ button:active {
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   ABOUT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   END OF ABOUT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   ABOUT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   END OF ABOUT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   CONTACT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
-/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   END OF CONTACT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
 textarea {
   height: 150px;
@@ -79,6 +80,9 @@ textarea {
 input{
   width: 75%;
 }
+
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   END OF CONTACT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   COLORS   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
 /* ~~~ TEXT COLORS ~~~ */
