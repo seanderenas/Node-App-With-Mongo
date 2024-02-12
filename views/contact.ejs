@@ -1,44 +1,27 @@
-<h1> Contact me here! </h1>
 
-<div class="row">
-    <div class="col text-center">
-          <section class="contact-wrap">
-            <form action="" class="contact-form">
-              <div class="col-sm-6">
-                <div class="input-block">
-                  <label for="">First Name</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="input-block">
-                  <label for="">Last Name</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <div class="input-block">
-                  <label for="">Email</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <div class="input-block">
-                  <label for="">Message Subject</label>
-                  <input type="text" class="form-control">
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <div class="input-block textarea">
-                  <label for="">Drop your message here</label>
-                  <textarea rows="3" type="text" class="form-control"></textarea>
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <button class="square-button">Send</button>
-              </div>
-            </form>
-          </section>
-          
+<div class="row mt-5 mb-3">
+    <div class="col-3">
+      <h2 class="outer-space-blue">Please <br>contact<br> me<br> here<br> about<br> any<br> questions.</h2>
+    </div>
+    <div class="col">
+      <form>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="contactName"><h4>Full Name</h4></label></div>
+          <div class="col text-start"><input id="contactName" placeholder="John Doe" type="text" name="name" required="true"></div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="contactEmail"><h4>Email</h4></label></div>
+          <div class="col text-start"><input id="contactEmail" placeholder="johndoe@example.com" type="text" name="email" required="true"><br></div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="contactSubject"><h4>Subject</h4></label></div>
+          <div class="col text-start"><input id="contactSubject" placeholder="Subject Field" type="text" name="subject" required="true"><br></div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="contactContent"><h4>Content</h4></label></div>
+          <div class="col text-start "><textarea class="" id="contactContent" placeholder="Main Content Section" type="text" name="name" required="true"></textarea><br></div>
+        </div>
+        <div class="col text-center"><button class="center">Submit</button></div>
+      </form>
     </div>
 </div>

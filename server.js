@@ -13,14 +13,14 @@ ObjectID = require('mongodb').ObjectID
 //require('./dotenv')
 
 // Replace process.env.DB_URL with your actual connection string
-const connectionString = "mongodb+srv://seanderenas:PY6TMYWTD9SSeksq@cluster0.czeqqpu.mongodb.net/"
+const connectionString = "mongodb+srv://seanderenas:qDE6nWmOOl3dfjNB@cluster0.czeqqpu.mongodb.net/"
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
-    console.log('Connected to Database')
     const db = client.db('PersonalProjectDB')
     const eventsCollection = db.collection('events')
-
+    console.log(`Connected to Database`)
+    
     // ========================
     // Middlewares
     // ========================
@@ -35,13 +35,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // Routes
     // ========================
     app.get('/', (req, res) => {
-      db.collection('events').find().toArray()
-        .then(events => {
-          res.render('index.ejs', { events: events, title: "Main Page", descripton: "Main page of Sean Derenas's personal website." })
-        })
-        .catch(/* ... */)
+      res.render('index.ejs', { title: "Main Page", descripton: "Main page of Sean Derenas's personal website." })
     })
-
     app.post('/events', (req, res) => {
       eventsCollection.insertOne(req.body)
         .then(result => {
@@ -49,19 +44,17 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
         .catch(error => console.error(error))
     })
-
     app.get('/events', (req, res) => {
       db.collection('events').find().toArray()
         .then(events => {
           res.render('events.ejs', { events: events, title: "All Events", descripton: "Shows all events created by users." })
         })
-        .catch(/* ... */)
+        .catch(error => console.error(error))
     })
 
     app.get('/about', (req, res) => {
       res.render('about', { title: 'About Page', descripton: "Explains who i am and my experience coding." })
     })
-
     app.get('/contact', (req, res) => {
       res.render('contact', { title: 'Contact Page', descripton: "How to contact me" })
     })
