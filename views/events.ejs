@@ -1,6 +1,6 @@
 
 
-<% /* Form for getting the events and its data */ %>
+<% /* ~~~~~~~~~~~~~~~~~~ Form for getting the events and its data ~~~~~~~~~~~~~~~~~~ */ %>
 <div class="row">
     <div class="col m-1" data-position="add-event">
      <h2>Add Event Shawty</h2>
@@ -9,7 +9,7 @@
        <input type="text" placeholder="Description" name="description" />
        <input type="datetime-local" name="date">
        
-       <input type="reset" value="Reset">
+       <input class="resetButton" type="reset" value="Reset">
        <button type="submit">Submit</button>
      </form>
    </div>
@@ -52,7 +52,7 @@
      </ul>
    </section> <% */ %>
 
-   <% /* Prints out all events to the screen  */ %>
+   <% /* ~~~~~~~~~~~~~~~~~~ Prints out all events to the screen ~~~~~~~~~~~~~~~~~~ */ %>
 <div class="col m-1" data-position="events">
     <h2>Events</h2>
       <% for(var i = 0; i < events.length; i++) {%>
