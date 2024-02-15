@@ -1,3 +1,1 @@
-# Crud Demo 
-
-This is the source code for ["Building a CRUD app with Node, Express, and MongoDB"](https://zellwk.com/blog/crud-express-mongodb). 
+THIS IS MY PERSONAL PROJECT I AM MAKING IT IN NODE.JS AND OTHER MODULES, IT LOOKS BAD SO I WILL PROBABLY MAKE A NEW ONE WITH BETTER PICTURES LATER.
