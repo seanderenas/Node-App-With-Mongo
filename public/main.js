@@ -1,8 +1,22 @@
-/* eslint-env browser */
+/* eslint-env browser 
 // main.js
 const update = document.querySelector('#update-button')
 const deleteButton = document.querySelector('#delete-button')
-const messageDiv = document.querySelector('#message')
+const messageDiv = document.querySelector('#message')*/
+
+const aboutMeIMG = document.querySelector('#aboutMeIMG');
+const aboutMeTextHidden = document.querySelector('#aboutMeTextHidden');
+var showExtra = false
+aboutMeIMG.addEventListener('click', () => {
+  if(showExtra){ aboutMeTextHidden.classList.add('d-none'); showExtra = false }
+  else{ aboutMeTextHidden.classList.remove('d-none'); showExtra = true }
+});
+
+
+
+
+
+
 
 /*
 update.addEventListener('click', _ => {

@@ -19,6 +19,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     const db = client.db('PersonalProjectDB')
     const eventsCollection = db.collection('events')
+    const contactFormCollection = db.collection('contactForm')
     console.log(`Connected to Database`)
     
     // ========================
@@ -30,6 +31,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.use(expressLayouts)
     app.set('layout', './layouts/application')
     app.use(express.static('public'))
+    app.use('/public/images/', express.static('./public/images'));
 
     // ========================
     // Routes
@@ -37,27 +39,28 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.get('/', (req, res) => {
       res.render('index.ejs', { title: "Main Page", descripton: "Main page of Sean Derenas's personal website." })
     })
-    app.post('/events', (req, res) => {
-      eventsCollection.insertOne(req.body)
-        .then(result => {
-          res.redirect('/events')
-        })
-        .catch(error => console.error(error))
-    })
-    app.get('/events', (req, res) => {
-      db.collection('events').find().toArray()
-        .then(events => {
-          res.render('events.ejs', { events: events, title: "All Events", descripton: "Shows all events created by users." })
-        })
-        .catch(error => console.error(error))
-    })
-
     app.get('/about', (req, res) => {
       res.render('about', { title: 'About Page', descripton: "Explains who i am and my experience coding." })
     })
     app.get('/contact', (req, res) => {
       res.render('contact', { title: 'Contact Page', descripton: "How to contact me" })
     })
+    
+    app.post('/contact', (req, res) => {
+      contactFormCollection.insertOne(req.body)
+        .then(result => {
+          res.redirect('/')
+        })
+        .catch(error => console.error(error))
+    })
+    app.get('/contactForms', (req, res) => {
+      db.collection('contactForm').find().toArray()
+        .then(forms => {
+          res.render('contactForms.ejs', { contactForms: forms, title: "All contact forms", descripton: "Shows all contact forms sent by users." })
+        })
+        .catch(error => console.error(error))
+    })
+
     app.get('/portfolio', (req, res) => {
       res.render('portfolio', { title: 'Porfolio Page', descripton: "Page containing all my projects i want to show off." })
     })

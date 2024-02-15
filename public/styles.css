@@ -83,6 +83,25 @@ button:active, input[type="reset"]:active {
 
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   ABOUT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+
+#aboutMeIMG {
+  transition: 0.2s;
+  border-radius: 10px;
+  border: #32373B solid 1px;
+}
+#aboutMeIMG:hover{
+  transition: 0.2s;
+  border-radius: 10px;
+  border: #5b6166 solid 1px;
+  filter: brightness(90%);
+}
+#aboutMeIMG:active{
+  transition: 0.2s;
+  border-radius: 10px;
+  border: #5b6166 solid 1px;
+  filter: brightness(80%);
+}
+
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   END OF ABOUT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   ABOUT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
