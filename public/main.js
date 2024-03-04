@@ -1,8 +1,3 @@
-/* eslint-env browser 
-// main.js
-const update = document.querySelector('#update-button')
-const deleteButton = document.querySelector('#delete-button')
-const messageDiv = document.querySelector('#message')*/
 
 const aboutMeIMG = document.querySelector('#aboutMeIMG');
 const aboutMeTextHidden = document.querySelector('#aboutMeTextHidden');
@@ -13,46 +8,16 @@ aboutMeIMG.addEventListener('click', () => {
 });
 
 
-
-
-
-
-
-/*
-update.addEventListener('click', _ => {
-  fetch('/quotes', {
-    method: 'put',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name: 'Darth Vadar',
-      quote: 'I find your lack of faith disturbing.'
-    })
-  })
-    .then(res => {
-      if (res.ok) return res.json()
-    })
-    .then(response => {
-      window.location.reload(true)
-    })
-})
-
-deleteButton.addEventListener('click', _ => {
-  fetch('/quotes', {
-    method: 'delete',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      name: 'Darth Vadar'
-    })
-  })
-    .then(res => {
-      if (res.ok) return res.json()
-    })
-    .then(response => {
-      if (response === 'No quote to delete') {
-        messageDiv.textContent = 'No Darth Vadar quote to delete'
-      } else {
-        window.location.reload(true)
-      }
-    })
-    .catch(console.error)
-}) */
+window.addEventListener('scroll', function(event) {
+  const name = document.querySelector('#webName');
+  console.log(`${window.scrollY}`);
+  
+  if (window.scrollY > 25) {
+    if(name.classList.contains('animate__fadeIn')) { name.classList.remove('animate__animated', 'animate__fadeIn');}
+    name.classList.add('animate__animated', 'animate__fadeOut');
+  } 
+  else if (window.scrollY < 25) {
+    if(name.classList.contains('animate__fadeOut')) { name.classList.remove('animate__animated', 'animate__fadeOut');}
+    name.classList.add('animate__animated', 'animate__fadeIn');
+  }
+ });

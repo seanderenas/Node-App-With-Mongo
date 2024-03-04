@@ -1,5 +1,14 @@
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   WEBSITE STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
+.navLink {
+  font-size: 250%;
+  transition: 0.5s;
+}
+
+.navLink:hover {
+  background-color: pink;
+}
+
 .link_hover a {
   text-decoration: none;
   color: #FAF9F6;
@@ -34,6 +43,9 @@ input, textarea {
   color: #32373B;
   opacity: 50%;
 }
+
+
+
 button, input[type="reset"] { /* input[type="reset"] is for reset buttons */
   background-color: #4A5859;
   color: #FAF9F6;
@@ -53,6 +65,15 @@ button:active, input[type="reset"]:active {
   border: 2px #32373B solid;
   transition: 0.2s;
 }
+#navBtn {
+  background-color: #9c9c9c;
+  border: transparent 0px solid;
+}
+#navBtn:hover {
+  background-color: #FAF9F650;
+  
+}
+
 .resetButton {
   max-width: fit-content;
 }
@@ -88,6 +109,7 @@ button:active, input[type="reset"]:active {
   transition: 0.2s;
   border-radius: 10px;
   border: #32373B solid 1px;
+  width: 100%;
 }
 #aboutMeIMG:hover{
   transition: 0.2s;
@@ -126,6 +148,10 @@ input{
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   END OF CONTACT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   COLORS   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+
+.nobg {
+  background-color: transparent;
+}
 
 /* ~~~ TEXT COLORS ~~~ */
 .black-onyx{color: #32373B;}

@@ -65,36 +65,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       res.render('portfolio', { title: 'Porfolio Page', descripton: "Page containing all my projects i want to show off." })
     })
 
-    /*app.put('/quotes', (req, res) => {
-      quotesCollection.findOneAndUpdate(
-        { name: 'Yoda' },
-        {
-          $set: {
-            name: req.body.name,
-            quote: req.body.quote
-          }
-        },
-        {
-          upsert: true
-        }
-      )
-        .then(result => res.json('Success'))
-        .catch(error => console.error(error))
-    })
-
-    app.delete('/quotes', (req, res) => {
-      quotesCollection.deleteOne(
-        { name: req.body.name }
-      )
-        .then(result => {
-          if (result.deletedCount === 0) {
-            return res.json('No quote to delete')
-          }
-          res.json('Deleted Darth Vadar\'s quote')
-        })
-        .catch(error => console.error(error))
-    }) */
-
     // ========================
     // Listen
     // ========================
