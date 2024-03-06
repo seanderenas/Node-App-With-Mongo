@@ -2,27 +2,19 @@
 
 li .navLink {
   font-size: 250%;
-  transition: 0.5s;
-  color: #32373B;
 }
 .navLink {
-  transition: 0.5s;
+  background-color: transparent;
   color: #32373B;
 }
-.link_hover a {
-  text-decoration: none;
-}
-.link_hover a:hover {
+.navLink:hover {
+  transition: 0.2s;
   color: #9c9c9c;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a {
   color: #32373B;
   text-decoration: none;
-}
-a:hover {
-  color: blue;
-  text-decoration: underline;
 }
 body {
   background-color: #FAF9F6;
@@ -60,16 +52,16 @@ input, textarea {
 
 button, input[type="reset"] {/*  input[type="reset"] is for reset buttons */
   background-color: #FAF9F6;
-  transition: 0.2s;
+  transition: 0.5s;
   border-radius: 4px;
   padding: 5px;
 }
 button:hover, input[type="reset"]:hover {
   background-color: #9c9c9c;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 button:active, input[type="reset"]:active {
-  transition: 0.2s; 
+  transition: 0.5s; 
 } 
 #navBtn {
   
@@ -112,19 +104,19 @@ button:active, input[type="reset"]:active {
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   ABOUT STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 
 #aboutMeIMG {
-  transition: 0.2s;
+  transition: 0.5s;
   border-radius: 10px;
   border: #32373B solid 1px;
   width: 100%;
 }
 #aboutMeIMG:hover{
-  transition: 0.2s;
+  transition: 0.5s;
   border-radius: 10px;
   border: #5b6166 solid 1px;
   filter: brightness(90%);
 }
 #aboutMeIMG:active{
-  transition: 0.2s;
+  transition: 0.5s;
   border-radius: 10px;
   border: #5b6166 solid 1px;
   filter: brightness(80%);
