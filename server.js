@@ -47,7 +47,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     })
     
     app.post('/contact', (req, res) => {
-      contactFormCollection.insertOne(req.body)
+      contactFormCollection.insertOne(req.body)  
         .then(result => {
           res.redirect('/')
         })
