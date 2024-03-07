@@ -7,12 +7,10 @@ body {
   font-family: 'Courier New', monospace;
   background-color: #FAF9F6;
   color: #32373B;
-  transition: 0.5s;
 }
 .dark-mode {
   background-color: #32373B;
   color: #FAF9F6;
-  transition: 0.5s;
 }
 .dark-mode-button {
   background-color: #32373B;

@@ -15,7 +15,10 @@ window.addEventListener('scroll', function(event) {
 //dark / light mode control
 const darkModeBtn = document.querySelector('#darkModeBtn');
 const links = document.querySelectorAll('.navLink');
-darkModeBtn.addEventListener('click', () => {
+
+darkModeBtn.addEventListener('click', darkModeToggle)
+
+ function darkModeToggle(){
   //switches dark mode buuton to light mode 
   darkModeBtn.innerHTML == "<strong>Dark Mode</strong>" ? darkModeBtn.innerHTML = "<strong>Light Mode</strong>" : darkModeBtn.innerHTML = "<strong>Dark Mode</strong>"; 
   darkModeBtn.classList.toggle('dark-mode-button');
@@ -31,7 +34,17 @@ darkModeBtn.addEventListener('click', () => {
   for(var i=0; i<links.length;i++){
     links[i].classList.toggle('dark-mode');
   }
-});
+}
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  console.log('dark mode engage');
+  darkModeToggle();
+} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+  console.log('light mode initiated');
+} else {
+  console.log('default');
+}
+
 //used for changing nav - to +
 const navLinks = document.querySelectorAll('.navLinks');
 navLinks.forEach(function(link) {
