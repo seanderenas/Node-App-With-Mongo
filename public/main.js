@@ -1,3 +1,9 @@
+const darkModeBtn = document.querySelector('#darkModeBtn');
+const links = document.querySelectorAll('.navLink');
+const navLinks = document.querySelectorAll('.navLinks');
+const welcomeName = document.querySelector('#welcomeName');
+const welcomeIMG = document.querySelector('#welcomeIMG');
+let animate = true;
 
 // controls Name fading in and out
 window.addEventListener('scroll', function(event) {
@@ -13,23 +19,17 @@ window.addEventListener('scroll', function(event) {
  });
 
 //dark / light mode control
-const darkModeBtn = document.querySelector('#darkModeBtn');
-const links = document.querySelectorAll('.navLink');
-
-darkModeBtn.addEventListener('click', darkModeToggle)
-
- function darkModeToggle(){
+darkModeBtn.addEventListener('click', darkModeToggle);
+function darkModeToggle(){
   //switches dark mode buuton to light mode 
   darkModeBtn.innerHTML == "<strong>Dark Mode</strong>" ? darkModeBtn.innerHTML = "<strong>Light Mode</strong>" : darkModeBtn.innerHTML = "<strong>Dark Mode</strong>"; 
   darkModeBtn.classList.toggle('dark-mode-button');
   document.querySelector('body').classList.toggle('dark-mode');
-  
   document.querySelector('.offcanvas').classList.toggle('dark-mode');
   document.querySelector('.offcanvas-header').classList.toggle('dark-mode');
   document.querySelector('#hamburgerMenu').classList.toggle('dark-mode-button');
   document.querySelector('#navBtn').classList.toggle('dark-mode-button');
   document.querySelector('#closeNav').classList.toggle('dark-mode-button');
-  
   document.querySelector('#footer').classList.toggle('dark-mode');
   for(var i=0; i<links.length;i++){
     links[i].classList.toggle('dark-mode');
@@ -46,7 +46,6 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
 }
 
 //used for changing nav - to +
-const navLinks = document.querySelectorAll('.navLinks');
 navLinks.forEach(function(link) {
   link.addEventListener('mouseover', () => {
     link.firstElementChild.firstElementChild.style.transform = 'rotate(90deg)';
@@ -64,9 +63,6 @@ navLinks.forEach(function(link) {
 });
 
 //used for welcome image animations 
-const welcomeName = document.querySelector('#welcomeName');
-const welcomeIMG = document.querySelector('#welcomeIMG');
-var animate = true;
 welcomeIMG.classList.add('animate__animated');
 welcomeName.addEventListener('mouseover', () => {
   if (animate) welcomeIMG.classList.toggle('animate__tada');

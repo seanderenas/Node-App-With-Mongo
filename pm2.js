@@ -6,7 +6,7 @@ const maxMemory = process.env.WEB_MEMORY || 512
 pm2.connect(function () {
   pm2.start({
     script: 'server.js',
-    name: 'crud-demo',
+    name: 'sean-derenas-personal-project',
     exec_mode: 'cluster',
     watch: false,
     instances: instances,
