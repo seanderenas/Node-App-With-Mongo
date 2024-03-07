@@ -12,7 +12,7 @@
       <h5>I'm a Computer Science Student in Boston, Ma. 🏙️</h5>
     </div>
     <div class="col text-center">
-      <img class="" id="welcomeIMG" src="../public/images/Sean_golden_gate_bridge.png" alt="Picture of Sean Derenas at Hawk Hill adjacent to the Golden Gate Bridge">
+      <img class="" id="welcomeIMG" src="../public/images/Sean_golden_gate_bridge.webp" alt="Picture of Sean Derenas at Hawk Hill adjacent to the Golden Gate Bridge">
     </div>
   </div>
 </header>
@@ -48,7 +48,7 @@
 <!-- Down Arrow Centered -->
 <div class="row"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1"/></svg></div>
 
-<!-- Contact Area -->
+<!-- Contact Area 
 <div class="row">
   <a id="contact"></a>
   <h2 > Contact me </h2>
@@ -57,4 +57,31 @@
     <img class="w-100" id="aboutMeIMG" src="https://dummyimage.com/1100x800/000/fff&text=I+take+up+space" alt="Picture of Sean Derenas doing something">
     <p> Example text</p>
   </div>
-</div>      
+</div>  -->   
+<div class="row mt-5 mb-3">
+  <a id="contact"></a>
+  <div class="col-sm-3 text-end">
+    <h2 class="outer-space-blue">Please <br>contact<br> me<br> here<br> about<br> any<br> questions</h2>
+  </div>
+  <div class="col">
+    <form action="/contact" method="POST">
+      <div class="row mt-2">
+        <div class="col-3 text-end"><label for="contactName"><h4>Full Name</h4></label></div>
+        <div class="col text-start"><input id="contactName" placeholder="John Doe" type="text" name="name" required="true"></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-3 text-end"><label for="contactEmail"><h4>Email</h4></label></div>
+        <div class="col text-start"><input id="contactEmail" placeholder="johndoe@example.com" type="text" name="email" required="true"><br></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-3 text-end"><label for="contactSubject"><h4>Subject</h4></label></div>
+        <div class="col text-start"><input id="contactSubject" placeholder="Subject Field" type="text" name="subject" required="true"><br></div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-3 text-end"><label for="contactContent"><h4>Content</h4></label></div>
+        <div class="col text-start "><textarea class="" id="contactContent" placeholder="Main Content Section" type="text" name="content" required="true"></textarea><br></div>
+      </div>
+      <div class="col text-center"><button class="">Submit</button><input class="resetButton ms-5" type="reset" value="Reset"></div>
+    </form>
+  </div>
+</div>
