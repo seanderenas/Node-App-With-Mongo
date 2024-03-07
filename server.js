@@ -18,7 +18,6 @@ const connectionString = "mongodb+srv://seanderenas:qDE6nWmOOl3dfjNB@cluster0.cz
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     const db = client.db('PersonalProjectDB')
-    const eventsCollection = db.collection('events')
     const contactFormCollection = db.collection('contactForm')
     console.log(`Connected to Database`)
     

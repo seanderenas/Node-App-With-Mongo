@@ -39,9 +39,9 @@ navLinks.forEach(function(link) {
     link.firstElementChild.firstElementChild.style.transform = 'rotate(90deg)';
     link.children[0].children[0].classList.add('navLinkHover');
     link.children[1].children[0].classList.add('navLinkHover');
-
   });
 });
+
 navLinks.forEach(function(link) {
   link.addEventListener('mouseout', () => {
     link.firstElementChild.firstElementChild.style.transform = 'rotate(0deg)';
@@ -53,10 +53,13 @@ navLinks.forEach(function(link) {
 //used for welcome image animations 
 const welcomeName = document.querySelector('#welcomeName');
 const welcomeIMG = document.querySelector('#welcomeIMG');
+var animate = true;
 welcomeIMG.classList.add('animate__animated');
 welcomeName.addEventListener('mouseover', () => {
-  welcomeIMG.classList.toggle('animate__tada');
+  if (animate) welcomeIMG.classList.toggle('animate__tada');
+  animate = false;
 });
 welcomeIMG.addEventListener("animationend", () => {
   welcomeIMG.classList.remove('animate__tada')
+  animate = true;
 });

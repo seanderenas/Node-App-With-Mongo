@@ -1,15 +1,15 @@
 {
-  "name": "crud-demo",
+  "name": "sean-derenas-personal-project",
   "version": "1.0.0",
-  "description": "Demo for Crud Express MongoDB article at https://zellwk.com/blog/crud-express-mongodb",
+  "description": "Porfolio website for Sean Derenas P.S. i tried my best to make it look good.",
   "main": "index.js",
   "scripts": {
     "start": "node pm2.js",
-    "restart": "node pm2.js crud-demo --update-env",
+    "restart": "node pm2.js sean-derenas-personal-project --update-env",
     "dev": "nodemon server.js",
     "sync": "node sync.js"
   },
-  "author": "Zell Liew <zellwk@gmail.com> (https://zellwk.com)",
+  "author": "Sean Derenas seanderenas@gmail.com",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",

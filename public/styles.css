@@ -1,9 +1,13 @@
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   WEBSITE STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+.transition {
+  transition: 0.5s;
+}
 
 body {
   font-family: 'Courier New', monospace;
   background-color: #FAF9F6;
   color: #32373B;
+  transition: 0.5s;
 }
 .dark-mode {
   background-color: #32373B;
@@ -87,9 +91,31 @@ a {
 }
 
 /* ~~~~~~~~ WELCOME LANDING ~~~~~~~~~~~ */
-#welcomeName:hover {
-  text-decoration: underline;
+
+.welcomeNameHover {
+  display: inline-block;
+  position: relative;
+  color: inherit;
 }
+
+.welcomeNameHover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #9c9c9c;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.welcomeNameHover:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 .welcomeIMGHover {
   transition: 0.2s;
   border: 5px #9c9c9c solid;
@@ -98,12 +124,15 @@ a {
   width: 300px;
   height: 300px;
   border-radius: 50%;
+  border: #9c9c9c 2px solid;
 }
 header{
-  margin-top: 200px;
-  margin-bottom: 200px;
+  margin-top: 15em;
+  margin-bottom: 15em;
 }
+
 /* ~~~~~~~~ FOOTER STYLES ~~~~~~~~~~~ */
+
 #page-container {
   position: relative;
   min-height: 100vh;
