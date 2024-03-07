@@ -18,5 +18,5 @@ node server.js
 npm -v
 `
 
-## Website I used for inspiration [here[(https://junocollege.com/blog/10-amazing-web-developer-portfolios-to-inspire-you/)
+## Website I used for inspiration [here](https://junocollege.com/blog/10-amazing-web-developer-portfolios-to-inspire-you/)
 
