@@ -13,7 +13,7 @@ ObjectID = require('mongodb').ObjectID
 //require('./dotenv')
 
 // Replace process.env.DB_URL with your actual connection string
-const connectionString = "mongodb+srv://seanderenas:qDE6nWmOOl3dfjNB@cluster0.czeqqpu.mongodb.net/"
+const connectionString = "mongodb+srv://seanderenas:MUmYgXxLMP6DgJLQ@cluster0.czeqqpu.mongodb.net/"
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
