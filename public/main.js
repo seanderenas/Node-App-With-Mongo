@@ -31,6 +31,7 @@ function darkModeToggle(){
   document.querySelector('#navBtn').classList.toggle('dark-mode-button');
   document.querySelector('#closeNav').classList.toggle('dark-mode-button');
   document.querySelector('#footer').classList.toggle('dark-mode');
+  document.querySelector('#signInBtn').classList.toggle('dark-mode');
   for(var i=0; i<links.length;i++){
     links[i].classList.toggle('dark-mode');
   }
@@ -45,7 +46,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
   console.log('default');
 }
 
-//used for changing nav - to +
+//used for Rotating nav <'s 
 navLinks.forEach(function(link) {
   link.addEventListener('mouseover', () => {
     link.firstElementChild.firstElementChild.style.transform = 'rotate(90deg)';
@@ -53,7 +54,6 @@ navLinks.forEach(function(link) {
     link.children[1].children[0].classList.add('navLinkHover');
   });
 });
-
 navLinks.forEach(function(link) {
   link.addEventListener('mouseout', () => {
     link.firstElementChild.firstElementChild.style.transform = 'rotate(0deg)';
@@ -72,3 +72,5 @@ welcomeIMG.addEventListener("animationend", () => {
   welcomeIMG.classList.remove('animate__tada')
   animate = true;
 });
+
+//used for top left domain name poping in if page is scrolled
