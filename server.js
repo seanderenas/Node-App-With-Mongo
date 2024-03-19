@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 const expressLayouts = require('express-ejs-layouts')
 const app = express()
+const favicon = require('serve-favicon');
 ObjectID = require('mongodb').ObjectID
 
 /* ~~~~~~~~ LINK TO DB ~~~~~~~~~~~ */
@@ -23,6 +24,7 @@ MongoClient.connect(connectionString)
     app.use(expressLayouts)
     app.use(express.static('public'))
     app.use('/public/images/', express.static('./public/images'));
+    app.use(favicon(__dirname + '/public/images/favicon.ico'));
     app.use('/', (req, res, next) => {
       console.log(`${req.method} ${req.path}`)
       next()

@@ -37,6 +37,9 @@ button:hover, input[type="reset"]:hover {
 button:active, input[type="reset"]:active {
   transition: 0.5s; 
 } 
+#contactSubmit {
+  border: 1px #32373B solid;
+}
 ::placeholder {
   color: #32373B;
   opacity: 50%;
@@ -54,6 +57,22 @@ textarea {
 input{
   width: 75%;
 }
+
+.floatingArrowAnimation { 
+	animation-name: floatingArrowAnimation;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	margin-left: 30px;
+	margin-top: 5px;
+}
+
+@keyframes floatingArrowAnimation {
+	0% { transform: translate(0, 0px); }
+	50% { transform: translate(0, 15px); }
+	100% { transform: translate(0, -0px); } 
+}
+
 
 /* ~~~~~~~~ NAV/LINK STYLES ~~~~~~~~~~~ */
 li .navLink {
@@ -132,6 +151,10 @@ a {
 header{
   margin-top: 15em;
   margin-bottom: 15em;
+}
+#aboutMeDiv {
+  margin-top: 10em;
+  margin-bottom: 10em;
 }
 
 /* ~~~~~~~~ FOOTER STYLES ~~~~~~~~~~~ */

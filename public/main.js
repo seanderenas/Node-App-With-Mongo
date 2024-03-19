@@ -73,4 +73,15 @@ welcomeIMG.addEventListener("animationend", () => {
   animate = true;
 });
 
-//used for top left domain name poping in if page is scrolled
+/* used for typing hello world on landing page */
+let typed = new Typed('#typed', {
+  strings: [`“Hello Borl`, `“Hello World!” `],
+  startDelay: 400,
+  typeSpeed: 70,
+  backSpeed: 100,
+  backDelay: 10,
+  smartBackspace: true, // start where first string ends
+  onComplete: (self) => { // turn cursor into space text
+    document.querySelector('.typed-cursor').innerHTML = '&nbsp;';
+  }
+});
