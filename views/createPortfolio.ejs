@@ -1,0 +1,25 @@
+<h1> Create Portfolio CRUD Page </h1>
+
+<div class="row">
+    <div class="col">
+      <form action="/createPorfolio" method="POST">
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="title"><h4>Title</h4></label></div>
+          <div class="col text-start"><input id="title" placeholder="Node app with MongoDB" type="text" name="title" required="true"></div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="briefDescription"><h4>Brief Description</h4></label></div>
+          <div class="col text-start"><input id="briefDescription" placeholder="Uses a databases to hold user entered data." type="text" name="briefDescription" required="true"><br></div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="description"><h4>Description</h4></label></div>
+          <div class="col text-start "><textarea class="" id="description" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, est, vitae tempore quidem laudantium dolor consequatur quae soluta neque, expedita perferendis unde debitis aperiam reprehenderit pariatur sapiente iusto ut nihil!" type="text" name="description" required="true"></textarea><br></div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="files"><h4>Files</h4></label></div>
+          <div class="col text-start"><input id="files" placeholder="Pictures of file" type="file" name="files" required="true"></div>
+        </div>
+        <div class="col text-center"><button id="contactSubmit">Submit</button><input class="resetButton ms-5" type="reset" value="Reset"></div>
+      </form>
+    </div>
+  </div>

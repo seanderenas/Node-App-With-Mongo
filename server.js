@@ -7,7 +7,7 @@ const favicon = require('serve-favicon');
 ObjectID = require('mongodb').ObjectID
 
 /* ~~~~~~~~ LINK TO DB ~~~~~~~~~~~ */
-const connectionString = "mongodb+srv://seanderenas:MUmYgXxLMP6DgJLQ@cluster0.czeqqpu.mongodb.net/"
+const connectionString = "mongodb+srv://seanderenas:MUmYgXxLMP6DgJLQ@cluster0.czeqqpu.mongodb.net/";
 MongoClient.connect(connectionString)
   .then(client => {
     const db = client.db('PersonalProjectDB')
@@ -24,7 +24,7 @@ MongoClient.connect(connectionString)
     app.use(expressLayouts)
     app.use(express.static('public'))
     app.use('/public/images/', express.static('./public/images'));
-    app.use(favicon(__dirname + '/public/images/favicon.ico'));
+    app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
     app.use('/', (req, res, next) => {
       console.log(`${req.method} ${req.path}`)
       next()
@@ -32,12 +32,17 @@ MongoClient.connect(connectionString)
 
     /* ~~~~~~~~ ROUTEs ~~~~~~~~~~~ */
     app.get('/', (req, res) => {
-      res.render('index.ejs', { title: "Main Page", descripton: "Main page of Sean Derenas's personal website." })
+      res.render('index.ejs', { title: "Sean Derenas", descripton: "Main page of Sean Derenas's personal website." })
     });
     app.get('/signin', (req, res) => {
       res.render('signin', { title: 'Sign In Page', descripton: "Please enter your credentials to sign in." })
     });
-    
+    app.get('/createPortfolio', (req, res) => {
+      res.render('createPortfolio', { title: 'Create Porfolio Entries', descripton: "Enter information in to create more entries into the portfolio database." })
+    });
+    app.post('/createPorfolio', (req, res) => {
+      console.log("created portfolio entru");
+    })
     app.post('/contact', (req, res) => {
       contactFormCollection.insertOne(req.body)  
         .then(result => {

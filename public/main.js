@@ -3,6 +3,7 @@ const links = document.querySelectorAll('.navLink');
 const navLinks = document.querySelectorAll('.navLinks');
 const welcomeName = document.querySelector('#welcomeName');
 const welcomeIMG = document.querySelector('#welcomeIMG');
+const icons = document.querySelectorAll('.icons img');
 let animate = true;
 
 // controls Name fading in and out
@@ -32,9 +33,8 @@ function darkModeToggle(){
   document.querySelector('#closeNav').classList.toggle('dark-mode-button');
   document.querySelector('#footer').classList.toggle('dark-mode');
   document.querySelector('#signInBtn').classList.toggle('dark-mode');
-  for(var i=0; i<links.length;i++){
-    links[i].classList.toggle('dark-mode');
-  }
+  for(var i=0; i<links.length;i++){links[i].classList.toggle('dark-mode');}
+  for(var i=0; i<icons.length;i++){icons[i].classList.toggle('iconsBlack');}
 }
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -85,3 +85,4 @@ let typed = new Typed('#typed', {
     document.querySelector('.typed-cursor').innerHTML = '&nbsp;';
   }
 });
+

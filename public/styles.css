@@ -1,8 +1,16 @@
+/*
+
+https://angel-rs.github.io/css-color-filter-generator/
+
+*/
 /*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   WEBSITE STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
 .transition {
-  transition: 0.5s;
+  transition: 0.2s;
 }
-
+.mainDivsSpacing {
+  margin-top: 8em;
+  margin-bottom: 8em;
+}
 body {
   font-family: 'Courier New', monospace;
   background-color: #FAF9F6;
@@ -12,6 +20,9 @@ body {
   background-color: #32373B;
   color: #FAF9F6;
 }
+a.aboutMeLinks.dark-mode {
+  text-decoration: underline;
+} 
 .dark-mode-button {
   background-color: #32373B;
   color: #FAF9F6;
@@ -80,22 +91,17 @@ li .navLink {
 }
 .navLink {
   background-color: transparent;
-  transition: 0.2s;
+  transition: 0.2s; 
 }
 
 .navLink:hover {
   color: #9c9c9c;
 }
-
-.navLinkHover {
-  transition: 0.2s;
-  color: #9c9c9c;
-  text-decoration: none;
-}
 a {
   color: #32373B;
-  text-decoration: none;
+  text-decoration: none ;
 }
+
 #closeNavBtn {
   font-size: x-large;
 }
@@ -152,11 +158,37 @@ header{
   margin-top: 15em;
   margin-bottom: 15em;
 }
-#aboutMeDiv {
-  margin-top: 10em;
-  margin-bottom: 10em;
+
+/* ~~~~~~~~ END OF WELCOME LANDING ~~~~~~~~~~~ */
+/* ~~~~~~~~ ABOUT ME ~~~~~~~~~~~ */
+.icons h5 {
+  margin-top: 1rem;
+}
+#aboutMeSkills {
+  margin-top: 3em;
+}
+#aboutMeSkills h2 {
+  margin-bottom: 1em;
+}
+.iconsBlack {
+  filter: brightness(0) saturate(100%) invert(18%) sepia(9%) saturate(507%) hue-rotate(165deg) brightness(101%) contrast(92%);
+}
+#aboutMeIMG {
+  border: #9c9c9c 2px solid;
+  border-radius: 5%;
+}
+.aboutMeLinks {
+  text-decoration: underline #32373B;
+}
+.aboutMeLinks:hover {
+  color: #9c9c9c;
+  text-decoration: underline #9c9c9c;
 }
 
+/* ~~~~~~~~ END OF ABOUT ME ~~~~~~~~~~~ */
+/* ~~~~~~~~ CONTACT ME ~~~~~~~~~~~ */
+
+/* ~~~~~~~~ END OF CONTACT ME ~~~~~~~~~~~ */
 /* ~~~~~~~~ FOOTER STYLES ~~~~~~~~~~~ */
 
 #page-container {
@@ -164,7 +196,7 @@ header{
   min-height: 100vh;
 }
 #content-wrap {
-  padding-bottom: 5.5rem;    /* Footer height */
+  padding-bottom: 8.5rem;    /* Footer height */
 }
 #footer {
   position: absolute;
@@ -173,7 +205,7 @@ header{
   height: 5.5rem;            /* Footer height */
 }
 
-/* ~~~~~~~~ FOOTER STYLES ~~~~~~~~~~~ */
+/* ~~~~~~~~ END FOOTER STYLES ~~~~~~~~~~~ */
 
 #header {
   padding-bottom: 4rem;
