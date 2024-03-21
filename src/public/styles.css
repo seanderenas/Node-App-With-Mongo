@@ -1,0 +1,233 @@
+/*
+
+https://angel-rs.github.io/css-color-filter-generator/
+
+*/
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   WEBSITE STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+.transition {
+  transition: 0.2s;
+}
+.mainDivsSpacing {
+  margin-top: 8em;
+  margin-bottom: 8em;
+}
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #FAF9F6;
+  color: #32373B;
+}
+.dark-mode {
+  background-color: #32373B;
+  color: #FAF9F6;
+}
+a.aboutMeLinks.dark-mode {
+  text-decoration: underline;
+} 
+.dark-mode-button {
+  background-color: #32373B;
+  color: #FAF9F6;
+  border: #FAF9F6 2px solid;
+}
+input, textarea {
+  border-radius: 4px;
+  border: 1px #4A5859 solid;
+  padding: 5px;
+  color: #32373B;
+  background-color: #FAF9F6;
+}
+button, input[type="reset"] {/*  input[type="reset"] is for reset buttons */
+  background-color: #FAF9F6;
+  transition: 0.5s;
+  border-radius: 4px;
+  padding: 5px;
+}
+button:hover, input[type="reset"]:hover {
+  background-color: #9c9c9c;
+  transition: 0.5s;
+}
+button:active, input[type="reset"]:active {
+  transition: 0.5s; 
+} 
+#contactSubmit {
+  border: 1px #32373B solid;
+}
+::placeholder {
+  color: #32373B;
+  opacity: 50%;
+}
+.resetButton {
+  max-width: fit-content;
+}
+::selection {
+  background-color: #9c9c9c;
+}
+textarea {
+  height: 150px;
+  width: 75%;
+}
+input{
+  width: 75%;
+}
+
+.floatingArrowAnimation { 
+	animation-name: floatingArrowAnimation;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+	margin-left: 30px;
+	margin-top: 5px;
+}
+
+@keyframes floatingArrowAnimation {
+	0% { transform: translate(0, 0px); }
+	50% { transform: translate(0, 15px); }
+	100% { transform: translate(0, -0px); } 
+}
+
+
+/* ~~~~~~~~ NAV/LINK STYLES ~~~~~~~~~~~ */
+li .navLink {
+  font-size: 250%;
+}
+.navLink {
+  background-color: transparent;
+  transition: 0.2s; 
+}
+
+.navLink:hover {
+  color: #9c9c9c;
+}
+a {
+  color: #32373B;
+  text-decoration: none ;
+}
+
+#closeNavBtn {
+  font-size: x-large;
+}
+#navBtn:hover {
+  background-color: #9c9c9c;  
+}
+#offcanvasButton:hover {
+  background-color: #9c9c9c;
+  color: #32373B;
+}
+.dark-mode #signInBtn {
+  border: #FAF9F6 solid 2px;
+}
+.dark-mode #signInBtn a{
+  color: #FAF9F6;
+}
+/* ~~~~~~~~ WELCOME LANDING ~~~~~~~~~~~ */
+
+.welcomeNameHover {
+  display: inline-block;
+  position: relative;
+  color: inherit;
+}
+
+.welcomeNameHover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #9c9c9c;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.welcomeNameHover:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.welcomeIMGHover {
+  transition: 0.2s;
+  border: 5px #9c9c9c solid;
+}
+#welcomeIMG {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: #9c9c9c 2px solid;
+}
+header{
+  margin-top: 15em;
+  margin-bottom: 15em;
+}
+
+/* ~~~~~~~~ END OF WELCOME LANDING ~~~~~~~~~~~ */
+/* ~~~~~~~~ ABOUT ME ~~~~~~~~~~~ */
+.icons h5 {
+  margin-top: 1rem;
+}
+#aboutMeSkills {
+  margin-top: 3em;
+}
+#aboutMeSkills h2 {
+  margin-bottom: 1em;
+}
+.iconsBlack {
+  filter: brightness(0) saturate(100%) invert(18%) sepia(9%) saturate(507%) hue-rotate(165deg) brightness(101%) contrast(92%);
+}
+#aboutMeIMG {
+  border: #9c9c9c 2px solid;
+  border-radius: 5%;
+}
+.aboutMeLinks {
+  text-decoration: underline #32373B;
+}
+.aboutMeLinks:hover {
+  color: #9c9c9c;
+  text-decoration: underline #9c9c9c;
+}
+
+/* ~~~~~~~~ END OF ABOUT ME ~~~~~~~~~~~ */
+/* ~~~~~~~~ CONTACT ME ~~~~~~~~~~~ */
+
+/* ~~~~~~~~ END OF CONTACT ME ~~~~~~~~~~~ */
+/* ~~~~~~~~ FOOTER STYLES ~~~~~~~~~~~ */
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+#content-wrap {
+  padding-bottom: 8.5rem;    /* Footer height */
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5.5rem;            /* Footer height */
+}
+
+/* ~~~~~~~~ END FOOTER STYLES ~~~~~~~~~~~ */
+
+#header {
+  padding-bottom: 4rem;
+}
+
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   END OF WEBSITE STYLES   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   COLORS   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */
+
+.nobg {
+  background-color: transparent;
+}
+
+/* ~~~ TEXT COLORS ~~~ */
+.black-onyx{color: #32373B;}
+.space-gray{color: #9c9c9c;}
+.outer-space-blue{color: #4A5859;}
+.off-white{color: #FAF9F6;}
+
+/* ~~~ BACKGROUND COLORS ~~~ */
+.bg-black-onyx{background-color: #32373B;}
+.bg-space-gray{background-color: #9c9c9c;}
+.bg-outer-space-blue{background-color: #4A5859;}
+.bg-off-white{background-color: #FAF9F6;}
+
+/*  ~~~~~~~~~~~~~~~~~~~~~~~~~~~   END OF COLORS   ~~~~~~~~~~~~~~~~~~~~~~~~~~~  */

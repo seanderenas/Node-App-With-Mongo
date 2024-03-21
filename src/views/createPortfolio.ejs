@@ -1,0 +1,40 @@
+<h1> Create Portfolio CRUD Page </h1>
+
+<div class="row">
+    <div class="col">
+      <form action="/createPortfolio" method="POST" enctype="multipart/form-data">
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="title"><h4>Title</h4></label></div>
+          <div class="col text-start"><input id="title" placeholder="Node app with MongoDB" type="text" name="title" required="true"></div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="briefDescription"><h4>Brief Description</h4></label></div>
+          <div class="col text-start"><input id="briefDescription" placeholder="Uses a databases to hold user entered data." type="text" name="briefDescription" required="true"><br></div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="description"><h4>Description</h4></label></div>
+          <div class="col text-start "><textarea class="" id="description" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, est, vitae tempore quidem laudantium dolor consequatur quae soluta neque, expedita perferendis unde debitis aperiam reprehenderit pariatur sapiente iusto ut nihil!" type="text" name="description" required="true"></textarea><br></div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-3 text-end"><label for="files"><h4>Files</h4></label></div>
+          <div class="col text-start"><input id="file" placeholder="Pictures of file" type="file" name="sampleFile" required="true" multiple></div>
+        </div>
+        <div class="col text-center"><button id="contactSubmit">Submit</button><input class="resetButton ms-5" type="reset" value="Reset"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="col m-1" data-position="portfolios">
+    <h2>Portfolios</h2>
+      <% for(var i = 0; i < portfolios.length; i++) {%>
+        <hr class="text-dark"><div class="ps-4 pe-4"> 
+          <h3>Title: <%= portfolios[i].title %></h3>
+          <h4>Brief: <%= portfolios[i].briefDescription %></h4>
+          <p><strong>Description:</strong> <%= portfolios[i].description %></p>
+          <p><strong>File:</strong> <%= portfolios[i] %> </p>
+          <button>Edit</button>
+          <button>Delete</button>
+          <button>View</button>
+        </div>
+      <% } %>
+  </div><hr class="text-dark">
