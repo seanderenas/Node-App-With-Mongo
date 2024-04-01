@@ -128,6 +128,11 @@ MongoClient.connect(process.env.MONGO_KEY)
       res.render('portfolio', { title: 'Porfolio Page', cssFileName: "styles.css", descripton: "Page containing all my projects i want to show off." })
     })
 
+    app.post('/', (req, res) => {
+      console.log(req.body);
+      res.send('man')
+    })
+
     /* ~~~~~~~~ LISTEN ~~~~~~~~~~~ */
     const isProduction = process.env.NODE_ENV === 'production'
     const port = isProduction ? 7500 : 3000
