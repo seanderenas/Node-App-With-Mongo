@@ -5,13 +5,13 @@ const expressLayouts = require('express-ejs-layouts')
 const fileUpload = require('express-fileupload');
 const fs = require('fs');
 const app = express()
+require('dotenv').config()
 
 const favicon = require('serve-favicon');
 ObjectID = require('mongodb').ObjectID
 
 /* ~~~~~~~~ LINK TO DB ~~~~~~~~~~~ */
-const connectionString = "mongodb+srv://seanderenas:MUmYgXxLMP6DgJLQ@cluster0.czeqqpu.mongodb.net/";
-MongoClient.connect(connectionString)
+MongoClient.connect(process.env.MONGO_KEY)
   .then(client => {
     const db = client.db('PersonalProjectDB')
     const contactFormCollection = db.collection('contactForm')
