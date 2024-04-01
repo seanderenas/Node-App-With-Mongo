@@ -19,6 +19,7 @@ MongoClient.connect(connectionString)
     console.log(`Connected to Database`)
     
     /* ~~~~~~~~ SETTINGS ~~~~~~~~~~~ */
+    app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs')
     app.set('layout', './layouts/application')
   
@@ -26,8 +27,8 @@ MongoClient.connect(connectionString)
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(bodyParser.json())
     app.use(expressLayouts)
-    app.use(express.static('public'))
-    app.use('/public/images/', express.static('./public/images'));
+    app.use(express.static(__dirname + '/public'))
+    app.use('/public/images', express.static(__dirname + '/public/images'));
     app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
     app.use(fileUpload());
     app.use('/', (req, res, next) => {
@@ -37,7 +38,7 @@ MongoClient.connect(connectionString)
 
     /* ~~~~~~~~ ROUTEs ~~~~~~~~~~~ */
     app.get('/', (req, res) => {
-      res.render('index.ejs', { title: "Sean Derenas", descripton: "Main page of Sean Derenas's personal website." })
+      res.render('index', { title: "Sean Derenas", descripton: "Main page of Sean Derenas's personal website." })
     });
     app.get('/signin', (req, res) => {
       res.render('signin', { title: 'Sign In Page', descripton: "Please enter your credentials to sign in." })
