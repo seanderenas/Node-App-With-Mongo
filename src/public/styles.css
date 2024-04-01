@@ -198,6 +198,16 @@ a {
 }
 
 /* ~~~~~~~~ END OF WELCOME LANDING ~~~~~~~~~~~ */
+/* ~~~~~~~~ PORTFOLIO STUFF ~~~~~~~~ */
+
+.portfolioDisplays {
+  @media (width <= 768px) {
+    
+    width: 100%;
+  }
+}
+
+/* ~~~~~~~~ END OF PORTFOLIO STUFF ~~~~~~~~ */
 /* ~~~~~~~~ ABOUT ME ~~~~~~~~~~~ */
 .icons h5 {
   margin-top: 1rem;
