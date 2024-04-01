@@ -82,10 +82,10 @@ button:active, input[type="reset"]:active {
 }
 textarea {
   height: 150px;
-  width: 75%;
+  width: 100%;
 }
 input{
-  width: 75%;
+  width: 100%;
 }
 
 .floatingArrowAnimation { 
@@ -143,11 +143,6 @@ a {
 }
 
 /* ~~~~~~~~ WELCOME LANDING ~~~~~~~~~~~ */
-#welcomeTextDiv {
-  /* ues padding or maggin em's and change based on screen size with media querys */
-
-}
-
 .welcomeNameHover {
   display: inline-block;
   position: relative;
@@ -241,9 +236,13 @@ a {
 #aboutMeSkills h2 {
   margin-bottom: 1em;
 }
-.iconsBlack {
+.iconImages{
+  filter: brightness(0) saturate(100%) invert(98%) sepia(3%) saturate(3626%) hue-rotate(255deg) brightness(121%) contrast(95%);
+}
+.icons .iconsBlack {
   filter: brightness(0) saturate(100%) invert(18%) sepia(9%) saturate(507%) hue-rotate(165deg) brightness(101%) contrast(92%);
 }
+
 #aboutMeIMG {
   border: #9c9c9c 2px solid;
   border-radius: 5%;
@@ -262,6 +261,10 @@ a {
   }
 }
 .aboutMeText p{
+  @media (1200px >= width >= 576px) {
+    
+    font-size: medium;
+  }
   @media (width <= 576px) {
     font-size: large;
   }
@@ -284,6 +287,12 @@ a {
   bottom: 0;
   width: 100%;
   height: 5.5rem;            /* Footer height */
+}
+.contactText label h4{
+  padding-right: 0px;
+  @media (width <= 576px) {
+    font-size: small;
+  }
 }
 
 /* ~~~~~~~~ END FOOTER STYLES ~~~~~~~~~~~ */

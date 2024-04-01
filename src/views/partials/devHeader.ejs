@@ -1,0 +1,44 @@
+<nav class="navbar fixed-top nobg">
+    <div class="container-fluid ">
+      
+      <h2 id="" class=""><a href="/">DEV</a></h2>
+      <button class="position-absolute top-0 end-0 mt-2 me-2" id="navBtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-list fs-1 black-onyx nobg" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" id="hamburgerMenu" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
+      </button>
+  
+      <div class="offcanvas offcanvas-end transition" data-bs-scroll="true" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          
+          <button type="button" id="closeNav" class="" data-bs-dismiss="offcanvas" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-x" id='closeNavBtn' viewBox="0 0 16 16">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+            </svg>
+          </button>
+          <button type="button" class="" id="darkModeBtn" data-bs-dismiss="offcanvas"><strong>Dark Mode</strong></button>
+        </div>
+        <div class="offcanvas-body position-absolute top-50 start-0 translate-middle-y transition" data-bs-scroll="true">
+          <ul class="navbar-nav justify-content-end pe-3">
+            
+            <li data-bs-dismiss="offcanvas">
+              <div class="row navLinks"> <div class="col plus"><a class="nav-link navLink nobg">></a></div> <div class="col-10"><a class="nav-link navLink nobg" href="/">Home</a></div> </div>
+            </li>
+            <li data-bs-dismiss="offcanvas">
+              <div class="row navLinks"> <div class="col plus"><a class="nav-link navLink nobg">></a></div> <div class="col-10"><a class="nav-link navLink nobg" href="/signin">Signin</a></div> </div>
+            </li>
+            <li data-bs-dismiss="offcanvas">
+              <div class="row navLinks"> <div class="col plus"><a class="nav-link navLink nobg">></a></div> <div class="col-10"><a class="nav-link navLink nobg" href="/createPortfolio">CRUD</a></div> </div>
+            </li>
+            <li data-bs-dismiss="offcanvas">
+              <div class="row navLinks"> <div class="col plus"><a class="nav-link navLink nobg">></a></div> <div class="col-10"><a class="nav-link navLink nobg" href="/portfolio">Portfolio</a></div> </div>
+            </li>
+  
+          </ul>
+        </div>
+        <div class="offcanvas-footer position-absolute bottom-0 end-0 pb-3 pe-3">
+          <button type="button" id="signInBtn"><a href="/signin"><strong>Sign In</strong></a></button>
+        </div>
+      </div>
+    </div>
+  </nav>
