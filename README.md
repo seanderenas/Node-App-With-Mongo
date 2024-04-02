@@ -18,5 +18,15 @@ node server.js
 npm -v
 `
 
+# MAKE .env FILE BEFORE RUNNING
+- create a .env file in root file
+- add this code this code to make it run
+
+`
+MONGO_KEY = "mongodb+srv://seanderenas:DB_PASSWORD@cluster0.czeqqpu.mongodb.net/"
+NODE_ENV = "development" 
+`
+
+
 ## Website I used for inspiration [here](https://junocollege.com/blog/10-amazing-web-developer-portfolios-to-inspire-you/)
 
