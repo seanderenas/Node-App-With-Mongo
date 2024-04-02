@@ -1,24 +1,28 @@
 <div class="row">
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
-    <div class="row"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"><p> Example text for portfolio</p></div>
+    <% for(let i=0; i<8; i++) { %>
+        <a id="project<%- i %>"></a>
+    <div class="mainDivsSpacing">
+        
+        <div class="row "> 
+            <% if (i%2 == 0){ %>
+                <div class="col-6"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"></div>
+                <div class="col"> 
+                    <h2>Project <%- i+1 %></h2>
+                    <h3> 00/00/00 </h3>
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nam quisquam libero harum. Dignissimos velit repellat nihil. Architecto praesentium facere repellat, mollitia libero nemo enim qui, neque corrupti amet hic.</p>
+                    <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro sed quisquam illo voluptatibus, amet dignissimos consectetur consequatur corrupti, molestias fugit deserunt possimus expedita iure, voluptatem soluta accusamus? Dolorem, soluta consectetur?</p>
+                </div>
+            <% } else { %>
+                <div class="col"> 
+                    <h2>Project <%- i+1 %></h2>
+                    <h3> 00/00/00 </h3>
+                    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nam quisquam libero harum. Dignissimos velit repellat nihil. Architecto praesentium facere repellat, mollitia libero nemo enim qui, neque corrupti amet hic.</p>
+                    <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro sed quisquam illo voluptatibus, amet dignissimos consectetur consequatur corrupti, molestias fugit deserunt possimus expedita iure, voluptatem soluta accusamus? Dolorem, soluta consectetur?</p>
+                </div>
+                <div class="col-6"> <img class=" col w-100" id="aboutMeIMG" src="../public/images/personal/about_me_image.webp" alt="Picture of Sean Derenas doing something"></div>
+            <% } %>
+            
+        </div>
+    </div>
+    <% } %>
 </div>

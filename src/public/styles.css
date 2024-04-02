@@ -112,6 +112,12 @@ li .navLink {
   background-color: transparent;
   transition: 0.2s; 
 }
+.navLinks .col-10 {
+  @media (width <= 312px) {
+    width: 80%; 
+    font-size: small;
+  }
+}
 
 .navLink:hover {
   color: #9c9c9c;
@@ -202,9 +208,54 @@ a {
 
 .portfolioDisplays {
   @media (width <= 768px) {
-    
+    flex: 0 0 auto;
     width: 100%;
   }
+}
+.hideText{
+  visibility: hidden;
+  opacity: 0; 
+  transition: visibility 0.5s, opacity 0.5s; 
+  color: #FAF9F6;
+}
+.portfolioContainer{
+  margin-right: 0.1em;
+  padding-top: 0.5em;
+ 
+}
+.portfolioContainer:hover .hideText {
+  visibility: visible;
+  opacity: 1; 
+}
+.portfolioImg {
+  filter: brightness(100%);
+  border-radius: 2%;
+  border: #9c9c9c solid 2px;
+  padding-left: 0%;
+  padding-right: 0%;
+}
+.portfolioContainer:hover .portfolioImg {
+  filter: brightness(60%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.portfolioContainer {
+  position: relative;
+}
+
+.portfolioText {
+  width: 95%;
+  position: absolute;
+  top: 20px;
+  left: 12px;
+}
+.portfolioText a {
+  color: #FAF9F6;
+  transition: 0.2s;
 }
 
 /* ~~~~~~~~ END OF PORTFOLIO STUFF ~~~~~~~~ */

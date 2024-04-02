@@ -85,4 +85,3 @@ let typed = new Typed('#typed', {
     document.querySelector('.typed-cursor').innerHTML = '&nbsp;';
   }
 });
-

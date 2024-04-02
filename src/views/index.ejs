@@ -21,22 +21,27 @@
   <h2> My Projects </h2>
   
   <!-- display portfolio's by index -->
-  <div class="col border border-dark portfolioDisplays">
-    <div>
-      image
+  <% for(let i=0; i<4; i++) { %>
+  
+    <% if (i==0 || i==3) { %>
+      <div class="col-8 portfolioDisplays ">
+        <div class="row portfolioContainer">
+          <img class="transition portfolioImg" src="../public/images/personal/about_me_image.webp"   alt="html logo icon">
+    <% } else { %>
+      <div class="col-4 portfolioDisplays">
+        <div class="row portfolioContainer">
+          <img class="transition portfolioImg" src="../public/images/personal/about_me_image.webp"  height="80%" alt="html logo icon">
+    <% } %>
+      <div class="portfolioText hideText">
+        <h5> Project<%- i %> ~ 00/00/00</h5>
+        <p> Short description of the project, who worked on it, how long it took, what was used to make it.</p>
+        <a href="/portfolio/#project<%- i %>" class="welcomeNameHover">View more info!</a>
+      </div>
     </div>
-    <div>
-      <h1>I Take up space</h1>
-      <h1>I Take up space</h1>
-      <h1>I Take up space</h1>
-    </div>
+  </div>
+  <% } %>
 
-  </div>
-  <div class="col-6 border border-dark">
-    <h1>I Take up space</h1>
-    <h1>I Take up space</h1>
-    <h1>I Take up space</h1>
-  </div>
+
 
 </div> 
 
