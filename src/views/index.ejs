@@ -33,7 +33,7 @@
           <img class="transition portfolioImg" src="../public/images/personal/about_me_image.webp"  height="80%" alt="html logo icon">
     <% } %>
       <div class="portfolioText hideText">
-        <h5> Project<%- i %> ~ 00/00/00</h5>
+        <h5> Project <%- i+1 %> ~ 00/00/00</h5>
         <p> Short description of the project, who worked on it, how long it took, what was used to make it.</p>
         <a href="/portfolio/#project<%- i %>" class="welcomeNameHover">View more info!</a>
       </div>
@@ -57,8 +57,12 @@
       <p>>&emsp;I went to <a class="navLink aboutMeLinks" href="http://www.baypath.net/web/home/index/" target="_blank">Bay Path RVTHS</a> studying Computer Science, I learned about OOP, algorithms, advanced datatypes, software development with Ruby on Rails, and relatioanl databases. On my own and in a club I built autonamous robots with one competing in an international robotics competiton in San Francisco. (Robot in the picture)</p>
       <p>>&emsp;Currently, I am getting my masters in Computer Science at <a class="navLink aboutMeLinks" href="https://wit.edu/" target="_blank">Wentworth Institute of Technology</a> located in Boston, MA. During my time at WIT I'll be doing several co-operative internships and creating personal projects in my free time.</p>
     </div>
-    <div class="col col-lg-4 col-md-6 col-sm-12 aboutMeText">
-      <img class="w-100" id="aboutMeIMG" src="../public/images/personal/At_CMS_holding_robot.webp" alt="Picture of Sean Derenas doing something">
+    <div class="col col-lg-4 col-md-6 col-sm-12 aboutMeText portfolioContainer m-0">
+      <img class="w-100 portfolioImg transition" id="aboutMeIMG" src="../public/images/personal/At_CMS_holding_robot.webp" alt="Picture of Sean Derenas doing something">
+      <div class="hideText" id="aboutMeIMGText">
+        <p class="">This is me at <a href="https://cms.dcrsd.org/" class="navLink aboutMeLinks" target="_blank">Charlton Middle School</a> where i taught 5-8th grade students about 
+          programming and electronics during the school's Hour of Code event.</p>
+      </div>
     </div>
   </div>
   <!-- About me skills -->

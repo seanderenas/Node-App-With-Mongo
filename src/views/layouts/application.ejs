@@ -12,7 +12,7 @@
 <body>
     <div class="wrapper ms-5 me-5" id="page-container">
         <div id="header">
-            <% if(title != "Sean's Portfolio Website") { %>
+            <% if(menu == "dev") { %>
                 <%- include('../partials/devHeader.ejs') %>
             <% } else { %>    
                 <%- include('../partials/header.ejs') %>

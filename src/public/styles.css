@@ -264,6 +264,21 @@ a {
   margin-top: 1rem;
 }
 
+#aboutMeIMGText p .aboutMeLinks {
+  color: #FAF9F6;
+  text-decoration: underline;
+}
+#aboutMeIMGText p .aboutMeLinks:hover {
+  color: #9c9c9c;
+}
+
+#aboutMeIMGText {
+  width: 95%;
+  position: absolute;
+  bottom: 55%;
+  left: 12px;
+}
+
 .icons {
   @media (width <= 576px) {
     flex: 0 0 auto;

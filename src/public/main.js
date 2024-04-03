@@ -6,6 +6,11 @@ const welcomeIMG = document.querySelector('#welcomeIMG');
 const icons = document.querySelectorAll('.icons img');
 let animate = true;
 
+//sleep function for async functions
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // controls Name fading in and out
 window.addEventListener('scroll', function(event) {
   const name = document.querySelector('#webName');
@@ -82,6 +87,11 @@ let typed = new Typed('#typed', {
   backDelay: 10,
   smartBackspace: true, // start where first string ends
   onComplete: (self) => { // turn cursor into space text
-    document.querySelector('.typed-cursor').innerHTML = '&nbsp;';
+    sleep(2000).then(() => {
+      document.querySelector('.typed-cursor').classList.add('animate__animated', 'animate__fadeOut'); // typed-cursor--blink      
+      document.querySelector('.typed-cursor').classList.remove('typed-cursor--blink');
+    });
   }
 });
+
+

@@ -38,15 +38,15 @@ MongoClient.connect(process.env.MONGO_KEY)
 
     /* ~~~~~~~~ ROUTEs ~~~~~~~~~~~ */
     app.get('/', (req, res) => {
-      res.render('index', {cssFileName: "styles.css", title: "Sean's Portfolio Website", descripton: "Main page of Sean Derenas's portfolio website, scroll down to learn about me and see my projects." })
+      res.render('index', {menu: 'public', cssFileName: "styles.css", title: "Sean's Portfolio Website", descripton: "Main page of Sean Derenas's portfolio website, scroll down to learn about me and see my projects." })
     });
     app.get('/signin', (req, res) => {
-      res.render('signin', {cssFileName: "styles.css", title: 'Sign In Page', descripton: "Please enter your credentials to sign in." })
+      res.render('signin', {menu: 'dev', cssFileName: "styles.css", title: 'Sign In Page', descripton: "Please enter your credentials to sign in." })
     });
     app.get('/createPortfolio', (req, res) => {
       porfolioEntryCollection.find().toArray()
         .then(portfolioEntry => {
-          res.render('createPortfolio', { portfolios: portfolioEntry, cssFileName: "styles.css", title: 'Create Porfolio Entries', descripton: "Enter information in to create more entries into the portfolio database." })
+          res.render('createPortfolio', {menu: 'dev', portfolios: portfolioEntry, cssFileName: "styles.css", title: 'Create Porfolio Entries', descripton: "Enter information in to create more entries into the portfolio database." })
         })
         .catch(error => console.error(error))
     })
@@ -119,13 +119,13 @@ MongoClient.connect(process.env.MONGO_KEY)
     app.get('/contactForms', (req, res) => {
       db.collection('contactForm').find().toArray()
         .then(forms => {
-          res.render('contactForms.ejs', { contactForms: forms, cssFileName: "styles.css", title: "All contact forms", descripton: "Shows all contact forms sent by users." })
+          res.render('contactForms.ejs', {menu: 'dev', contactForms: forms, cssFileName: "styles.css", title: "All contact forms", descripton: "Shows all contact forms sent by users." })
         })
         .catch(error => console.error(error))
     })
 
     app.get('/portfolio', (req, res) => {
-      res.render('portfolio', { title: 'Porfolio Page', cssFileName: "styles.css", descripton: "Page containing all my projects i want to show off." })
+      res.render('portfolio', {menu: 'public', title: 'Porfolio Page', cssFileName: "styles.css", descripton: "Page containing all my projects i want to show off." })
     })
 
     app.post('/', (req, res) => {
