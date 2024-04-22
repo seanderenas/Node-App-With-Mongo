@@ -26,15 +26,15 @@
     <% if (i==0 || i==3) { %>
       <div class="col-8 portfolioDisplays ">
         <div class="row portfolioContainer">
-          <img class="transition portfolioImg" src="../public/images/personal/about_me_image.webp"   alt="html logo icon">
+          <img class="transition portfolioImg" src="/download/<%= files[10].filename %>" alt="html logo icon">
     <% } else { %>
       <div class="col-4 portfolioDisplays">
         <div class="row portfolioContainer">
-          <img class="transition portfolioImg" src="../public/images/personal/about_me_image.webp"  height="80%" alt="html logo icon">
+          <img class="transition portfolioImg" src="/download/<%= files[9].filename %>"  height="80%" alt="html logo icon">
     <% } %>
       <div class="portfolioText hideText">
-        <h5> Project <%- i+1 %> ~ 00/00/00</h5>
-        <p> Short description of the project, who worked on it, how long it took, what was used to make it.</p>
+        <h5> <%= portfolios[5].title %> </h5>
+        <p> <%= portfolios[5].briefDescription %></p>
         <a href="/portfolio/#project<%- i %>" class="welcomeNameHover">View more info!</a>
       </div>
     </div>

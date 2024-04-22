@@ -1,14 +1,36 @@
 
 <div class="col m-1" data-position="files">
-    <h2>images</h2>
+    <h2>Portfolios</h2>
+      <% for(var i = 0; i < portfolios.length; i++) {%>
+        <hr class="text-dark"><div class="ps-4 pe-4"> 
+          <h3>Title: <%= portfolios[i].title %></h3>
+          <h4>Brief: <%= portfolios[i].briefDescription %></h4>
+          <p><strong>Description:</strong> <%= portfolios[i].description %></p>
+          <div class="row">
+            <strong>File(s):</strong> 
+            <% for(var j = 0; j < files.length; j++) {%>
+              <% if(portfolios[i].title == files[j].portfolioTitle){ %>
+                <div class="displayImages ps-4 pe-4"> 
+                  <img  class="mw-100 " src="/download/<%= files[j].filename %>">
+                </div>
+              <% } %>
+            <% } %>
+            </div>
+        </div>
+      <% } %>
+</div><hr class="text-dark">
+
+<!-- 
+<h2>images</h2>
     <p>Attributes: _id,length,chunkSize,uploadDate,filename,contentType,portfolioTitle </p>
       <% for(var i = 0; i < files.length; i++) {%>
         <hr class="text-dark"><div class="ps-4 pe-4"> 
           <h3>Filename: <%= files[i].filename %> </h3>
           <h3>Belongs to: <%= files[i].portfolioTitle %> </h3>
-          <h3>Files: <img src="/download/<%= files[i].filename %>"> </h3>
+          <h3>Files: <img  class="mw-100" id="aboutMeIMG" src="/download/<%= files[i].filename %>"> </h3>
           <p>ID: <%= files[i]._id %></p>
           
         </div>
       <% } %>
-  </div><hr class="text-dark">
+
+-->
