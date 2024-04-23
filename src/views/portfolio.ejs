@@ -7,15 +7,12 @@
             <% if (i%2 != 0){ %>
                 <div class="col-6">
                     <div id="<%= portfolios[i].title.split(' ').join('') %>Carousel" class="carousel slide">
-                        <% 
-                            var portfolioImages = [];
+                        <%  var portfolioImages = [];
                             for(let j=0; j<files.length; j++) {
                                 if(portfolios[i].title == files[j].portfolioTitle){
                                     portfolioImages.push(files[j]);
                                 }
-                            }
-                        %>
-                        
+                            } %>
                         <div class="carousel-indicators">
                             <% for(let k=0; k<portfolioImages.length; k++){ %>
                                 <% if(k == 0){ %>
@@ -24,7 +21,6 @@
                                     <button type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide-to="<%= k %>" aria-label="Slide <%= k+1 %>"></button>
                                 <% } %>
                             <% } %>
-                        
                         </div>
                         <div class="carousel-inner">
                             <% for(let k=0; k<portfolioImages.length; k++){ %>
@@ -40,12 +36,12 @@
                             <% } %>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                 </div>
@@ -62,15 +58,12 @@
                 </div>
                 <div class="col-6">
                     <div id="<%= portfolios[i].title.split(' ').join('') %>Carousel" class="carousel slide">
-                        <% 
-                            var portfolioImages = [];
+                        <% var portfolioImages = [];
                             for(let j=0; j<files.length; j++) {
                                 if(portfolios[i].title == files[j].portfolioTitle){
                                     portfolioImages.push(files[j]);
                                 }
-                            }
-                        %>
-                        
+                            } %>
                         <div class="carousel-indicators">
                             <% for(let k=0; k<portfolioImages.length; k++){ %>
                                 <% if(k == 0){ %>
@@ -79,7 +72,6 @@
                                     <button type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide-to="<%= k %>" aria-label="Slide <%= k+1 %>"></button>
                                 <% } %>
                             <% } %>
-                        
                         </div>
                         <div class="carousel-inner">
                             <% for(let k=0; k<portfolioImages.length; k++){ %>
@@ -95,17 +87,16 @@
                             <% } %>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
                         </button>
                     </div>
                 </div>
             <% } %>
-            
         </div>
     </div>
     <% } %>

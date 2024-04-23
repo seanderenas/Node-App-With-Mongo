@@ -94,7 +94,6 @@ MongoClient.connect(url)
     /* pass it a file name and json for the res.render but lets you access all images too */
     async function renderWithImagesAndPortfolios(renderFile, jsonDataForFile = [], res) {
       try {
-        await MongoClient.connect(url)
         const database = client.db("test")
         const images = database.collection("photos.files")
         const cursor = images.find({})
@@ -135,7 +134,7 @@ MongoClient.connect(url)
 
     app.get("/download/:filename", async (req, res) => {
       try {
-        await MongoClient.connect(url)
+       
     
         const database = client.db("test")
     
