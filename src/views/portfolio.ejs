@@ -4,12 +4,53 @@
     <div class="mainDivsSpacing">
         
         <div class="row "> 
-            <% if (i%2 == 0){ %>
+            <% if (i%2 != 0){ %>
                 <div class="col-6">
-                     <img class=" col w-100" id="aboutMeIMG" src="https://dummyimage.com/600x400/000/fff&text=image+slideshow" alt="Picture of Sean Derenas doing something">
+                    <div id="<%= portfolios[i].title.split(' ').join('') %>Carousel" class="carousel slide">
+                        <% 
+                            var portfolioImages = [];
+                            for(let j=0; j<files.length; j++) {
+                                if(portfolios[i].title == files[j].portfolioTitle){
+                                    portfolioImages.push(files[j]);
+                                }
+                            }
+                        %>
+                        
+                        <div class="carousel-indicators">
+                            <% for(let k=0; k<portfolioImages.length; k++){ %>
+                                <% if(k == 0){ %>
+                                    <button type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide-to="<%= k %>" class="active" aria-current="true" aria-label="Slide <%= k+1 %>"></button>
+                                <% } else { %>
+                                    <button type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide-to="<%= k %>" aria-label="Slide <%= k+1 %>"></button>
+                                <% } %>
+                            <% } %>
+                        
+                        </div>
+                        <div class="carousel-inner">
+                            <% for(let k=0; k<portfolioImages.length; k++){ %>
+                                <% if(k == 0){ %>
+                                <div class="carousel-item active">
+                                    <img src="/download/<%= portfolioImages[k].filename %>" class="d-block w-100" alt="Portfolio Image from <%= portfolios[i].title %>">
+                                </div>
+                                <% } else { %>
+                                <div class="carousel-item">
+                                    <img src="/download/<%= portfolioImages[k].filename %>" class="d-block w-100" alt="Portfolio Image from <%= portfolios[i].title %>">
+                                </div>
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="col-6"> 
-                    <h2 class="mw-100"><%= portfolios[i].title %></h2>
+                <div class="col-6">
+                    <h2><%= portfolios[i].title %></h2>
                     <h3> <%= portfolios[i].date %> </h3>
                     <p> <%= portfolios[i].description %> </p>
                 </div>
@@ -20,7 +61,48 @@
                     <p> <%= portfolios[i].description %> </p>
                 </div>
                 <div class="col-6">
-                    <img class=" col w-100" id="aboutMeIMG" src="https://dummyimage.com/600x400/000/fff&text=image+slideshow" alt="Picture of Sean Derenas doing something">
+                    <div id="<%= portfolios[i].title.split(' ').join('') %>Carousel" class="carousel slide">
+                        <% 
+                            var portfolioImages = [];
+                            for(let j=0; j<files.length; j++) {
+                                if(portfolios[i].title == files[j].portfolioTitle){
+                                    portfolioImages.push(files[j]);
+                                }
+                            }
+                        %>
+                        
+                        <div class="carousel-indicators">
+                            <% for(let k=0; k<portfolioImages.length; k++){ %>
+                                <% if(k == 0){ %>
+                                    <button type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide-to="<%= k %>" class="active" aria-current="true" aria-label="Slide <%= k+1 %>"></button>
+                                <% } else { %>
+                                    <button type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide-to="<%= k %>" aria-label="Slide <%= k+1 %>"></button>
+                                <% } %>
+                            <% } %>
+                        
+                        </div>
+                        <div class="carousel-inner">
+                            <% for(let k=0; k<portfolioImages.length; k++){ %>
+                                <% if(k == 0){ %>
+                                <div class="carousel-item active">
+                                    <img src="/download/<%= portfolioImages[k].filename %>" class="d-block w-100" alt="Portfolio Image from <%= portfolios[i].title %>">
+                                </div>
+                                <% } else { %>
+                                <div class="carousel-item">
+                                    <img src="/download/<%= portfolioImages[k].filename %>" class="d-block w-100" alt="Portfolio Image from <%= portfolios[i].title %>">
+                                </div>
+                                <% } %>
+                            <% } %>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#<%= portfolios[i].title.split(' ').join('') %>Carousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
             <% } %>
             

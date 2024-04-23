@@ -1,7 +1,9 @@
 
 <div class="col m-1" data-position="files">
     <h2>Portfolios</h2>
+    
       <% for(var i = 0; i < portfolios.length; i++) {%>
+        <%= Object.keys(portfolios[i]) %>
         <hr class="text-dark"><div class="ps-4 pe-4"> 
           <h3>Title: <%= portfolios[i].title %></h3>
           <h4>Brief: <%= portfolios[i].briefDescription %></h4>
