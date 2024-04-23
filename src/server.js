@@ -134,8 +134,6 @@ MongoClient.connect(url)
 
     app.get("/download/:filename", async (req, res) => {
       try {
-       
-    
         const database = client.db("test")
     
         const imageBucket = new GridFSBucket(database, {
