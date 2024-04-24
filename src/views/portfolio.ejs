@@ -5,7 +5,7 @@
         
         <div class="row "> 
             <% if (i%2 != 0){ %>
-                <div class="col-6">
+                <div class="col-6 portfolioImageArea">
                     <div id="<%= portfolios[i].title.split(' ').join('') %>Carousel" class="carousel slide">
                         <%  var portfolioImages = [];
                             for(let j=0; j<files.length; j++) {
@@ -56,7 +56,7 @@
                     <h3> <%= portfolios[i].date %> </h3>
                     <p> <%= portfolios[i].description %> </p>
                 </div>
-                <div class="col-6">
+                <div class="col-6 portfolioImageArea">
                     <div id="<%= portfolios[i].title.split(' ').join('') %>Carousel" class="carousel slide">
                         <% var portfolioImages = [];
                             for(let j=0; j<files.length; j++) {
@@ -77,11 +77,11 @@
                             <% for(let k=0; k<portfolioImages.length; k++){ %>
                                 <% if(k == 0){ %>
                                 <div class="carousel-item active">
-                                    <img src="/download/<%= portfolioImages[k].filename %>" class="d-block w-100" alt="Portfolio Image from <%= portfolios[i].title %>">
+                                    <img  src="/download/<%= portfolioImages[k].filename %>" class="d-block w-100" alt="Portfolio Image from <%= portfolios[i].title %>">
                                 </div>
                                 <% } else { %>
                                 <div class="carousel-item">
-                                    <img src="/download/<%= portfolioImages[k].filename %>" class="d-block w-100" alt="Portfolio Image from <%= portfolios[i].title %>">
+                                    <img  src="/download/<%= portfolioImages[k].filename %>" class="d-block w-100" alt="Portfolio Image from <%= portfolios[i].title %>">
                                 </div>
                                 <% } %>
                             <% } %>

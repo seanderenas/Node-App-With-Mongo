@@ -94,4 +94,6 @@ let typed = new Typed('#typed', {
   }
 });
 
+//used for making portfolio slideshows height of tallest image .carousel-inner 
+
 

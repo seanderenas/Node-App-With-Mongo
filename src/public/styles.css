@@ -260,8 +260,14 @@ a {
 }
 
 button.carousel-control-prev, button.carousel-control-next  {
- border-radius: 0%;
  transition: 0.5s;
+ width: 10%;
+}
+button.carousel-control-prev{
+  border-radius: 0%;
+}
+button.carousel-control-next{
+  border-radius: 0% ;
 }
 
 button.carousel-control-prev:hover, button.carousel-control-next:hover  {
@@ -270,12 +276,34 @@ button.carousel-control-prev:hover, button.carousel-control-next:hover  {
 }
 
 span.carousel-control-prev-icon, span.carousel-control-next-icon {
-  filter: brightness(0) saturate(100%) invert(21%) sepia(14%) saturate(296%) hue-rotate(165deg) brightness(92%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(69%) sepia(7%) saturate(6%) hue-rotate(43deg) brightness(90%) contrast(87%);
+}
+
+div .carousel-inner {
+  max-height: 400px;
+  min-height: 400px;
+}
+.carousel-inner .carousel-item{
+  width: 100%;
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center; 
 }
 
 .portfolioTextArea{
   overflow-wrap: break-word;
 }
+.carousel-item img {
+  /* was border on image */
+}
+
+.portfolioImageArea {
+  background-color: #9c9c9c;
+  padding: 0;
+}
+
 /* ~~~~~~~~ END OF PORTFOLIO STUFF ~~~~~~~~ */
 /* ~~~~~~~~ ABOUT ME ~~~~~~~~~~~ */
 .icons h5 {
@@ -293,8 +321,8 @@ span.carousel-control-prev-icon, span.carousel-control-next-icon {
 #aboutMeIMGText {
   width: 95%;
   position: absolute;
-  bottom: 55%;
-  left: 12px;
+  top: 5%;
+  left: 5%;
 }
 
 .icons {

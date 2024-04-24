@@ -159,6 +159,9 @@ MongoClient.connect(url)
     app.get("/images", async (req, res) => {
       renderWithImagesAndPortfolios('images', {menu: 'dev', cssFileName: 'styles.css', title: 'All images', descripton: 'desc.' }, res)
     })
+    app.get('/signin', (req, res) => {
+      res.render('signin', {menu: 'dev', cssFileName: "styles.css", title: 'Sign In Page', descripton: "Please enter your credentials to sign in." })
+    });
 
     /* ~~~~~~~~ ROUTES WITHOUT DB ~~~~~~~~~~~ */
     app.get('/contactForms', (req, res) => {
@@ -180,7 +183,6 @@ MongoClient.connect(url)
         })
         .catch(error => console.error(error))
     })
-
     /* ~~~~~~~~ LISTEN ~~~~~~~~~~~ */
     const isProduction = process.env.NODE_ENV === 'production'
     const port = isProduction ? 7500 : 3000
@@ -190,6 +192,3 @@ MongoClient.connect(url)
   })
   .catch(console.error)
 
-  app.get('/signin', (req, res) => {
-    res.render('signin', {menu: 'dev', cssFileName: "styles.css", title: 'Sign In Page', descripton: "Please enter your credentials to sign in." })
-  });
