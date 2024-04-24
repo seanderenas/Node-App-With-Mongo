@@ -273,6 +273,9 @@ span.carousel-control-prev-icon, span.carousel-control-next-icon {
   filter: brightness(0) saturate(100%) invert(21%) sepia(14%) saturate(296%) hue-rotate(165deg) brightness(92%) contrast(96%);
 }
 
+.portfolioTextArea{
+  overflow-wrap: break-word;
+}
 /* ~~~~~~~~ END OF PORTFOLIO STUFF ~~~~~~~~ */
 /* ~~~~~~~~ ABOUT ME ~~~~~~~~~~~ */
 .icons h5 {

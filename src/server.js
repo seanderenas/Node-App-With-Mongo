@@ -37,7 +37,8 @@ MongoClient.connect(url)
     //app.use(fileUpload());
     app.use('/', (req, res, next) => {
       let logData = `[ ${new Date().toISOString()} ] [${req.ip}] [${req.method}] [${req.path}] [${req.headers['accept-language']}] [${req.headers['user-agent']}] \n`;
-      //console.log(req.headers)
+      
+      //if the request is for download then ignore it, this is for loading images from the db
       if( !req.path.includes('/download/')){
         fs.appendFile('logs.txt', logData, function (err) { 
           if (err) throw err; 
@@ -73,23 +74,19 @@ MongoClient.connect(url)
 
     app.post("/uploadImages", upload.array('file', 5) , function (req, res, next) { 
       const files = req.files
-
       const database = client.db("test")
       const images = database.collection("photos.files")
 
+      //loops through files from post request and addes to images db
       for(let i=0; i<files.length; i++){
-        console.log(`File Name: ${files[i].filename}`);
+        console.log(`Added: ${files[i].filename} to db`);
         images.updateOne({"filename" : files[i].filename }, { "$set": {portfolioTitle: req.body.title} });
-        
       }
+
       //after uploading images enter form data to other collection
-      porfolioEntryCollection.insertOne(req.body)  
-      .then(result => {
-        renderWithImagesAndPortfolios('index', {menu: 'public', cssFileName: "styles.css", title: "Sean's Portfolio Website", descripton: "Main page of Sean Derenas's portfolio website, scroll down to learn about me and see my projects." } , res)
-      })
-      .catch(error => console.error(error))
-      
+      renderWithImagesAndPortfolios('index', {menu: 'public', cssFileName: "styles.css", title: "Sean's Portfolio Website", descripton: "Main page of Sean Derenas's portfolio website, scroll down to learn about me and see my projects." } , res)
     })
+
 
     /* pass it a file name and json for the res.render but lets you access all images too */
     async function renderWithImagesAndPortfolios(renderFile, jsonDataForFile = [], res) {
@@ -98,25 +95,24 @@ MongoClient.connect(url)
         const images = database.collection("photos.files")
         const cursor = images.find({})
         const count = await images.countDocuments();
-        if (count === 0) {
+        const allImages = []
+        //if there are no images throw error
+        if (count === 0) { 
           return res.status(404).send({
             message: "Error: No Images found",
           })
         }
-        
-        const allImages = []
+        //add each image to allImages collection
         await cursor.forEach(item => {
           allImages.push(item)
         })
 
-        jsonDataForFile['files'] = allImages;
-        
-        porfolioEntryCollection.find().toArray()
-        .then(portfolioEntry => {
+        porfolioEntryCollection.find().toArray().then(portfolioEntry => {
+          //add portfolio entries and images to the data send over 
           jsonDataForFile['portfolios'] = portfolioEntry;
+          jsonDataForFile['files'] = allImages;
           res.render(renderFile, jsonDataForFile);
-        })
-        .catch(error => console.error(error))
+        }).catch(error => console.error(error))
 
       } catch (error) {
         console.log(error)
@@ -125,24 +121,13 @@ MongoClient.connect(url)
           error,
         })
       }
-      
     }
-
-    app.get("/images", async (req, res) => {
-      renderWithImagesAndPortfolios('images', {menu: 'dev', cssFileName: 'styles.css', title: 'All images', descripton: 'desc.' }, res)
-    })
 
     app.get("/download/:filename", async (req, res) => {
       try {
         const database = client.db("test")
-    
-        const imageBucket = new GridFSBucket(database, {
-          bucketName: "photos",
-        })
-    
-        let downloadStream = imageBucket.openDownloadStreamByName(
-          req.params.filename
-        )
+        const imageBucket = new GridFSBucket(database, { bucketName: "photos", })
+        let downloadStream = imageBucket.openDownloadStreamByName(req.params.filename)
     
         downloadStream.on("data", function (data) {
           return res.status(200).write(data)
@@ -164,17 +149,24 @@ MongoClient.connect(url)
       }
     })
 
-    /* ~~~~~~~~ ROUTEs ~~~~~~~~~~~ */
+    /* ~~~~~~~~ ROUTES WITH DB NEEDED ~~~~~~~~~~~ */
     app.get('/', (req, res) => {
-      porfolioEntryCollection.find().toArray()
-      .then(portfolioEntry => {
-        renderWithImagesAndPortfolios('index', {menu: 'public', portfolios: portfolioEntry, cssFileName: "styles.css", title: "Sean's Portfolio Website", descripton: "Main page of Sean Derenas's portfolio website, scroll down to learn about me and see my projects." }, res)
-      })
-      .catch(error => console.error(error))
+      renderWithImagesAndPortfolios('index', {menu: 'public', cssFileName: "styles.css", title: "Sean's Portfolio Website", descripton: "Main page of Sean Derenas's portfolio website, scroll down to learn about me and see my projects." }, res)
     });
-    app.get('/signin', (req, res) => {
-      res.render('signin', {menu: 'dev', cssFileName: "styles.css", title: 'Sign In Page', descripton: "Please enter your credentials to sign in." })
-    });
+    app.get('/portfolio', (req, res) => {
+      renderWithImagesAndPortfolios('portfolio', {menu: 'public', title: 'Porfolio Page', cssFileName: "styles.css", descripton: "Page containing all my projects i want to show off." } , res)
+    })
+    app.get("/images", async (req, res) => {
+      renderWithImagesAndPortfolios('images', {menu: 'dev', cssFileName: 'styles.css', title: 'All images', descripton: 'desc.' }, res)
+    })
+
+    /* ~~~~~~~~ ROUTES WITHOUT DB ~~~~~~~~~~~ */
+    app.get('/contactForms', (req, res) => {
+      contactFormCollection.find().toArray().then(forms => {
+          res.render('contactForms.ejs', {menu: 'dev', contactForms: forms, cssFileName: "styles.css", title: "All contact forms", descripton: "Shows all contact forms sent by users." })
+        })
+        .catch(error => console.error(error))
+    })
     app.get('/createPortfolio', (req, res) => {
       porfolioEntryCollection.find().toArray()
         .then(portfolioEntry => {
@@ -183,23 +175,10 @@ MongoClient.connect(url)
         .catch(error => console.error(error))
     })
     app.post('/contact', (req, res) => {
-      contactFormCollection.insertOne(req.body)  
-        .then(result => {
+      contactFormCollection.insertOne(req.body).then(result => {
           res.redirect('/')
         })
         .catch(error => console.error(error))
-    })
-
-    app.get('/contactForms', (req, res) => {
-      db.collection('contactForm').find().toArray()
-        .then(forms => {
-          res.render('contactForms.ejs', {menu: 'dev', contactForms: forms, cssFileName: "styles.css", title: "All contact forms", descripton: "Shows all contact forms sent by users." })
-        })
-        .catch(error => console.error(error))
-    })
-
-    app.get('/portfolio', (req, res) => {
-      renderWithImagesAndPortfolios('portfolio', {menu: 'public', title: 'Porfolio Page', cssFileName: "styles.css", descripton: "Page containing all my projects i want to show off." } , res)
     })
 
     /* ~~~~~~~~ LISTEN ~~~~~~~~~~~ */
@@ -210,3 +189,7 @@ MongoClient.connect(url)
     })
   })
   .catch(console.error)
+
+  app.get('/signin', (req, res) => {
+    res.render('signin', {menu: 'dev', cssFileName: "styles.css", title: 'Sign In Page', descripton: "Please enter your credentials to sign in." })
+  });
