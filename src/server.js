@@ -7,20 +7,20 @@ const { GridFsStorage } = require("multer-gridfs-storage")
 const GridFSBucket = require("mongodb").GridFSBucket
 const fs = require('fs');
 const app = express()
-require('dotenv').config()
 const favicon = require('serve-favicon');
 const { title } = require('process')
-ObjectID = require('mongodb').ObjectID
-
+require('dotenv').config()
 const url = process.env.MONGO_KEY
+
+ObjectID = require('mongodb').ObjectID
 
 /* ~~~~~~~~ LINK TO DB ~~~~~~~~~~~ */
 MongoClient.connect(url)
   .then(client => {
+    
     const db = client.db('PersonalProjectDB')
     const contactFormCollection = db.collection('contactForm')
     const porfolioEntryCollection = db.collection('porfolioEntry');
-    console.log(`Connected to Database`)
 
     /* ~~~~~~~~ SETTINGS ~~~~~~~~~~~ */
     app.set('views', __dirname + '/views');
@@ -34,7 +34,7 @@ MongoClient.connect(url)
     app.use(express.static(__dirname + '/public'))
     app.use('/public/images', express.static(__dirname + '/public/images'));
     app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
-    //app.use(fileUpload());
+
     app.use('/', (req, res, next) => {
       let logData = `[ ${new Date().toISOString()} ] [${req.ip}] [${req.method}] [${req.path}] [${req.headers['accept-language']}] [${req.headers['user-agent']}] \n`;
       
@@ -45,8 +45,6 @@ MongoClient.connect(url)
           console.log('logged data'); 
         }); 
       }
-
-  
       next()
     })
 
@@ -86,7 +84,6 @@ MongoClient.connect(url)
       //after uploading images enter form data to other collection
       renderWithImagesAndPortfolios('index', {menu: 'public', cssFileName: "styles.css", title: "Sean's Portfolio Website", descripton: "Main page of Sean Derenas's portfolio website, scroll down to learn about me and see my projects." } , res)
     })
-
 
     /* pass it a file name and json for the res.render but lets you access all images too */
     async function renderWithImagesAndPortfolios(renderFile, jsonDataForFile = [], res) {
