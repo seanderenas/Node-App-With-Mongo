@@ -1,53 +1,52 @@
 /* ~~~~~~~~~~~ import stuffs ~~~~~~~~~~~~~ */
-const express = require('express')
-const bodyParser = require('body-parser')
-const MongoClient = require('mongodb').MongoClient
-const expressLayouts = require('express-ejs-layouts')
-const multer = require("multer")
-const { GridFsStorage } = require("multer-gridfs-storage")
-const GridFSBucket = require("mongodb").GridFSBucket
+const express = require('express');
+const bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient;
+const expressLayouts = require('express-ejs-layouts');
+const multer = require("multer");
+const { GridFsStorage } = require("multer-gridfs-storage");
+const GridFSBucket = require("mongodb").GridFSBucket;
 const fs = require('fs');
-const app = express()
+const app = express();
 const favicon = require('serve-favicon');
-const { title } = require('process')
-require('dotenv').config()
-const url = process.env.MONGO_KEY
+const { title } = require('process');
+require('dotenv').config();
+const url = process.env.MONGO_KEY;
 
-ObjectID = require('mongodb').ObjectID
+ObjectID = require('mongodb').ObjectID;
 
-/* ~~~~~~~~ LINK TO DB ~~~~~~~~~~~ */
-MongoClient.connect(url)
-  .then(client => {
-    
-    const db = client.db('PersonalProjectDB')
-    const contactFormCollection = db.collection('contactForm')
+MongoClient.connect(url).then(client => {
+    /* ~~~~~~~~~~ DATABASES ~~~~~~~~~~~ */
+    const db = client.db('PersonalProjectDB');
+    const contactFormCollection = db.collection('contactForm');
     const porfolioEntryCollection = db.collection('porfolioEntry');
 
     /* ~~~~~~~~ SETTINGS ~~~~~~~~~~~ */
     app.set('views', __dirname + '/views');
-    app.set('view engine', 'ejs')
-    app.set('layout', './layouts/application')
+    app.set('view engine', 'ejs');
+    app.set('layout', './layouts/application');
   
     /* ~~~~~~~~ MIDDLEWARE ~~~~~~~~~~~ */
-    app.use(bodyParser.urlencoded({ extended: true }))
-    app.use(bodyParser.json())
-    app.use(expressLayouts)
-    app.use(express.static(__dirname + '/public'))
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
+    app.use(expressLayouts);
+    app.use(express.static(__dirname + '/public'));
     app.use('/public/images', express.static(__dirname + '/public/images'));
     app.use(favicon(__dirname + '/public/images/icons/favicon.ico'));
 
+    /* ~~~~~~~~~ LOGS DATA TO logs.txt FILE ~~~~~~~~~~~ */
     app.use('/', (req, res, next) => {
       let logData = `[ ${new Date().toISOString()} ] [${req.ip}] [${req.method}] [${req.path}] [${req.headers['accept-language']}] [${req.headers['user-agent']}] \n`;
       
       //if the request is for download then ignore it, this is for loading images from the db
-      if( !req.path.includes('/download/')){
+      if(!req.path.includes('/download/')){
         fs.appendFile('logs.txt', logData, function (err) { 
           if (err) throw err; 
           console.log('logged data'); 
         }); 
       }
       next()
-    })
+    });
 
     /* ~~~~~~~~ CREATE BUCKET USED AS STORAGE ~~~~~~~~~~~ */
     const storage = new GridFsStorage({
@@ -66,10 +65,11 @@ MongoClient.connect(url)
           return `${Date.now()}_${file.originalname}`
         }
       },
-    })
+    });
 
     // Set multer storage engine to the newly created object
-    const upload = multer({ storage })
+    const upload = multer({ storage });
+
 
     app.post("/uploadImages", upload.array('file', 5) , function (req, res, next) { 
       const files = req.files
@@ -88,7 +88,7 @@ MongoClient.connect(url)
       })
       .catch(error => console.error(error))
       
-    })
+    });
 
     /* pass it a file name and json for the res.render but lets you access all images too */
     async function renderWithImagesAndPortfolios(renderFile, jsonDataForFile = [], res) {
@@ -124,7 +124,7 @@ MongoClient.connect(url)
         })
       }
     }
-
+    /* ~~~~~~ USED FOR LAODING IMAGES FROM DB ~~~~~~~~~~ */
     app.get("/download/:filename", async (req, res) => {
       try {
         const database = client.db("test")
@@ -149,7 +149,7 @@ MongoClient.connect(url)
           error,
         })
       }
-    })
+    });
 
     /* ~~~~~~~~ ROUTES WITH DB NEEDED ~~~~~~~~~~~ */
     app.get('/', (req, res) => {
@@ -157,34 +157,33 @@ MongoClient.connect(url)
     });
     app.get('/portfolio', (req, res) => {
       renderWithImagesAndPortfolios('portfolio', {menu: 'public', title: 'Porfolio Page', cssFileName: "styles.css", descripton: "Page containing all my projects i want to show off." } , res)
-    })
+    });
     app.get("/images", async (req, res) => {
       renderWithImagesAndPortfolios('images', {menu: 'dev', cssFileName: 'styles.css', title: 'All images', descripton: 'desc.' }, res)
-    })
+    });
     app.get('/signin', (req, res) => {
       res.render('signin', {menu: 'dev', cssFileName: "styles.css", title: 'Sign In Page', descripton: "Please enter your credentials to sign in." })
     });
-
-    /* ~~~~~~~~ ROUTES WITHOUT DB ~~~~~~~~~~~ */
     app.get('/contactForms', (req, res) => {
       contactFormCollection.find().toArray().then(forms => {
           res.render('contactForms.ejs', {menu: 'dev', contactForms: forms, cssFileName: "styles.css", title: "All contact forms", descripton: "Shows all contact forms sent by users." })
         })
         .catch(error => console.error(error))
-    })
+    });
     app.get('/createPortfolio', (req, res) => {
       porfolioEntryCollection.find().toArray()
         .then(portfolioEntry => {
           res.render('createPortfolio', {menu: 'dev', portfolios: portfolioEntry, cssFileName: "styles.css", title: 'Create Porfolio Entries', descripton: "Enter information in to create more entries into the portfolio database." })
         })
         .catch(error => console.error(error))
-    })
+    });
     app.post('/contact', (req, res) => {
       contactFormCollection.insertOne(req.body).then(result => {
           res.redirect('/')
         })
         .catch(error => console.error(error))
-    })
+    });
+
     /* ~~~~~~~~ LISTEN ~~~~~~~~~~~ */
     const isProduction = process.env.NODE_ENV === 'production'
     const port = isProduction ? 7500 : 3000
@@ -192,5 +191,4 @@ MongoClient.connect(url)
       console.log(`listening on ${port}`)
     })
   })
-  .catch(console.error)
-
+  .catch(console.error);
