@@ -1,3 +1,4 @@
+/* ~~~~~~~~~~~ import stuffs ~~~~~~~~~~~~~ */
 const express = require('express')
 const bodyParser = require('body-parser')
 const MongoClient = require('mongodb').MongoClient
@@ -82,7 +83,11 @@ MongoClient.connect(url)
       }
 
       //after uploading images enter form data to other collection
-      renderWithImagesAndPortfolios('index', {menu: 'public', cssFileName: "styles.css", title: "Sean's Portfolio Website", descripton: "Main page of Sean Derenas's portfolio website, scroll down to learn about me and see my projects." } , res)
+      porfolioEntryCollection.insertOne(req.body).then(result => {
+        renderWithImagesAndPortfolios('index', {menu: 'public', cssFileName: "styles.css", title: "Sean's Portfolio Website", descripton: "Main page of Sean Derenas's portfolio website, scroll down to learn about me and see my projects." } , res)
+      })
+      .catch(error => console.error(error))
+      
     })
 
     /* pass it a file name and json for the res.render but lets you access all images too */
